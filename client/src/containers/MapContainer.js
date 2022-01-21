@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Chart } from "react-google-charts";
 import CountryCard from '../components/CountryCard';
 import CountryList from '../components/CountryList';
@@ -7,10 +7,24 @@ import {europe_data, europe_options, micro_europe_data, micro_europe_options} fr
 
 const MapContainer = () => {
 
+    const [selectedCountry, setSelectedCountry] = useState("")
+
     return (
         <>
             <h2>Map Container</h2>
+            <h3>Selected country is: {selectedCountry}</h3>
             <Chart
+                chartEvents={[  
+                    { eventName: "select",
+                    callback: ({chartWrapper}) => {
+                        const chart = chartWrapper.getChart();
+                        const selection = chart.getSelection();
+                        if (selection.length === 0) return;
+                        const country = europe_data[selection[0].row + 1];
+                        setSelectedCountry(country);
+                        },
+                    },
+                ]}
                 className="map"
                 chartType="GeoChart"
                 width="85%"
