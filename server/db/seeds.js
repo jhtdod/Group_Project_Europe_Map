@@ -1,4 +1,7 @@
-[
+use europe 
+db.dropDatabase();
+
+db.countries.insertMany([
 {"country" : "Albania", "dish" : "Tavë kosi"},
 {"country" : "Andorra", "dish" : "Escudella"},
 {"country" : "Austria", "dish" : "Wiener schnitzel, Tafelspitz"},
@@ -48,4 +51,4 @@
 {"country" : "Turkey", "dish" : "Döner kebab,   Kuru fasulye with pilav "},
 {"country" : "Ukraine", "dish" : "Borscht,   Varenyky   "},
 {"country" : "United Kingdom", "dish" : "Fish and chips, Haggis, Ulster Fry, Cawl  "},
-]
+])
