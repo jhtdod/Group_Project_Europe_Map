@@ -34,7 +34,7 @@ const MapContainer = () => {
             />
             <CountryList/>
             <CountryCard/>
-            <CountrySearch setSelectedCountry={setSelectedCountry}/>
+            <CountrySearch setSelectedCountry={setSelectedCountry} europe_data={europe_data}/>
         </>
     )
 }

@@ -28,5 +28,7 @@ export const getData = (payload) => {
         headers: { 'Content-Type': 'application/json' }
     })
     .then(res => res.json())
-    .then()
+    .then(res => {
+        console.log(res);
+    })
 }
