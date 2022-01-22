@@ -69,13 +69,15 @@ const createRouter = function (collection) {
     })
   })
 
-  router.post('/api', (req, res) => {
-    console.log(req.body)
-    res.json({
-      status: "success"
-    })
+  // router.post('/api', (req, res) => {
+  //     const addData = req.body;
+  //     post.save()
+  //     .then (data => {
+  //       res.json(data)
+  //     })
+  //   })
     
-  })
+  // })
 
   return router
 

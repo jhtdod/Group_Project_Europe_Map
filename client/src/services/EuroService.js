@@ -21,14 +21,17 @@ export const deleteCountry = (id) => {
     })
 }
 
-export const getData = (payload) => {
-    return fetch(countryURL, {
-        method: 'POST',
-        body: JSON.stringify(payload),
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(res => res.json())
-    .then(res => {
-        console.log(res);
-    })
-}
+// export const getData = (payload) => {
+//     return fetch(countryURL, {
+//         method: 'POST',
+//         body: JSON.stringify(payload),
+//         headers: { 'Content-Type': 'application/json' }
+//     })
+//     .then(res => res.json())
+//     .then(data.save(
+//         res.send({
+
+//         })
+//     )
+//     })
+// 
