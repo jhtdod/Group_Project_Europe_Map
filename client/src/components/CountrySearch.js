@@ -1,54 +1,33 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import "./CountrySearch.css"
 
-const CountrySearch = ({setSelectedCountry, country, europe_data}) => {
-    
-    const searchForCountry = (searchValue) => {
-            const search = searchValue.toLowerCase();
-            const searchedCountry = europe_data.filter((search) => {
-                return country.name.toLowerCase()
-                })
-            setSelectedCountry(searchedCountry)
-    }
-    
+const CountrySearch = ({handleChange}) => {
+
+      const [searchValue, setSearchValue] = useState("");
+
+  const changeSearchValue = (event) => {
+    event.preventDefault();
+    setSearchValue(event.target.value);
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  }
+
     return(
-        <>
-        <form>
-    {/* <form onSubmit={handleSubmit}> */}
+    <div className="form">
+    <h2>Or search for a country below</h2>
+    <form onSubmit={handleSubmit}>
       <input
-        // onChange={changeSearchValue}
+        onChange={changeSearchValue}
         type="text"
         name="searchTerm"
-        placeholder="Select Country"
-         />
-    </form>        </>
+        placeholder="Select A Country"
+        value={searchValue}/>
+    </form>        
+    </div>
     )
 }
 
 export default CountrySearch;
 
-//   const [searchValue, setSearchValue] = useState("");
-
-//   const changeSearchValue = (event) => {
-//     event.preventDefault();
-//     setSearchValue(event.target.value);
-//   }
-
-//   useEffect(() => {
-//     handleChange(searchValue);
-//   }, [searchValue]);
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//   }
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <input
-//         onChange={changeSearchValue}
-//         type="text"
-//         name="searchTerm"
-//         placeholder="Select Country"
-//         value={searchValue} />
-//     </form>
-//   );
-// }

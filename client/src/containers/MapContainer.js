@@ -9,6 +9,14 @@ const MapContainer = () => {
 
     const [selectedCountry, setSelectedCountry] = useState("")
 
+    const searchForCountry = (searchValue) => {
+            const searched = searchValue.toLowerCase()
+            const values = europe_data.toLowerCase()
+            const searchedCountry = values.filter((searched) => {
+                return searchedCountry
+                })
+            setSelectedCountry(searchedCountry)
+    }
     return (
         <>
             <h2>Map Container</h2>
@@ -34,7 +42,8 @@ const MapContainer = () => {
             />
             <CountryList/>
             <CountryCard/>
-            <CountrySearch setSelectedCountry={setSelectedCountry} europe_data={europe_data}/>
+            <CountrySearch handleChange={searchForCountry}/>
+
         </>
     )
 }
