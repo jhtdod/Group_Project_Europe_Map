@@ -33,7 +33,7 @@ const MapContainer = () => {
                 data={europe_data}
                 options={europe_options}
             /> */}
-            <LeafletMap/>
+            <LeafletMap setSelectedCountry={setSelectedCountry}/>
             <CountryList/>
             <CountryCard/>
             <CountrySearch/>
