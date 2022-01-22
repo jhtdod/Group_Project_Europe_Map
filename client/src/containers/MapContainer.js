@@ -4,6 +4,7 @@ import CountryCard from '../components/CountryCard';
 import CountryList from '../components/CountryList';
 import CountrySearch from '../components/CountrySearch';
 import {europe_data, europe_options, micro_europe_data, micro_europe_options} from './EuropeData';
+import LeafletMap from "./LeafletMap";
 
 const MapContainer = () => {
 
@@ -13,7 +14,7 @@ const MapContainer = () => {
         <>
             <h2>Map Container</h2>
             <h3>Selected country is: {selectedCountry}</h3>
-            <Chart
+            {/* <Chart
                 chartEvents={[  
                     { eventName: "select",
                     callback: ({chartWrapper}) => {
@@ -31,7 +32,8 @@ const MapContainer = () => {
                 height="75%"
                 data={europe_data}
                 options={europe_options}
-            />
+            /> */}
+            <LeafletMap/>
             <CountryList/>
             <CountryCard/>
             <CountrySearch/>
