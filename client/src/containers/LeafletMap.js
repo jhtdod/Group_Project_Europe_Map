@@ -7,10 +7,25 @@ const LeafletMap = ({setSelectedCountry}) => {
 
     const countryStyle = {
         fillColor: "#7eca7e",
+        color: "grey",
         fillOpacity: 0.3,
-        color: "black",
         weight: 1
     };
+
+    const onEachCountry = (country, layer) => {
+
+        layer.on({
+            click: () => {
+                setSelectedCountry(country.properties.NAME);
+            },
+            mouseover: (event) => {
+                event.target.setStyle({weight: 3, fillOpacity: 1})
+            },
+            mouseout: (event) => {
+                event.target.setStyle({weight: 1, fillOpacity: 0.3})
+            }
+        })
+    }
 
     return (
             <div className="leaflet-container">
@@ -21,6 +36,7 @@ const LeafletMap = ({setSelectedCountry}) => {
                 <GeoJSON
                 style={countryStyle} 
                 data={europe_json}
+                onEachFeature={onEachCountry}
                 />
             </MapContainer>
             </div>
