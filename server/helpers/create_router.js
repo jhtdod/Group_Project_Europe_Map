@@ -69,6 +69,11 @@ const createRouter = function (collection) {
     })
   })
 
+  router.post('/api', (request, response) => {
+    console.log(request);
+  }
+})
+
   return router
 
 };
