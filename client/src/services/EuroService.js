@@ -28,8 +28,8 @@ export const deleteCountry = (id) => {
 //         headers: { 'Content-Type': 'application/json' }
 //     })
 //     .then(res => res.json())
-//     .then(data.save(
-//         res.send({
+//     .then(data.save() - returns promise
+//    
 
 //         })
 //     )

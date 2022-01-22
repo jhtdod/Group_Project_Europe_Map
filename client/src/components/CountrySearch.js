@@ -10,8 +10,13 @@ const CountrySearch = ({handleChange}) => {
     setSearchValue(event.target.value);
   }
 
+  const resetSearch = () => {
+    setSearchValue('')
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    resetSearch()
   }
 
     return(
