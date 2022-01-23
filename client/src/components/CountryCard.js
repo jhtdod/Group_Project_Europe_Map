@@ -1,11 +1,18 @@
 import React from "react";
 import CountryInfo from "./CountryInfo";
+import Card from 'react-bootstrap/Card';
 
-const CountryCard = () => {
+const CountryCard = ({ selectedCountry }) => {
     return (
         <>
-            <h3>Country Card</h3>
-            <CountryInfo/>
+            <Card style={{width: '18rem'}}>
+                <Card.Header as='h4'>{selectedCountry}</Card.Header>
+                <Card.Body>
+                    <Card.Text>
+                        <CountryInfo />
+                    </Card.Text>
+                </Card.Body>
+            </Card>
         </>
     )
 }

@@ -1,0 +1,45 @@
+.right-side {
+    position: fixed;
+    z-index: 10;
+    right: 5%;
+    top: 0;
+    width: 370px;
+}
+
+/* .card {
+    border: black solid 1px;
+    border-top: white solid;
+    background-color: white;
+    height: 500px;
+    padding: 0 10px;
+} */
+
+.card {
+    border: none;
+    border-radius: 0;
+}
+
+.card-header:first-child {
+    background-color: white;
+    border: none;
+    border-style: none;
+    box-shadow: none;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+    border: none;
+    border-style: none;
+}
+
+.accordion-item:first-of-type .accordion-button {
+    background-color: white;
+    border: none;
+}
+
+.accordion-item:first-of-type {
+    border: none;
+}
+
+.accordion-item:last-of-type {
+    border: none;
+}

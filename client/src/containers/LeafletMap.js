@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import env from 'react-dotenv';
 import europe_json from "./NewEurope.json";
+import './MapContainer.css'
 
 const LeafletMap = ({setSelectedCountry}) => {
 
