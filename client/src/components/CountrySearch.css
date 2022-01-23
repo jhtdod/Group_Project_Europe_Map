@@ -2,3 +2,11 @@
     margin: 25px;
     padding: 10px
 }
+
+.SearchList {
+    height: 100px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    list-style: none
+}

@@ -10,7 +10,7 @@ const createRouter = function (collection) {
     collection
       .find()
       .toArray()
-      .then((docs) => (console.log(docs))//{res.json(docs)})
+      .then((docs) => (console.log(docs))
       .catch((err) => {
         console.error(err);
         res.status(500);
@@ -69,15 +69,17 @@ const createRouter = function (collection) {
     })
   })
 
-  // router.post('/api', (req, res) => {
-  //     const addData = req.body;
-  //     post.save()
-  //     .then (data => {
-  //       res.json(data)
-  //     })
-  //   })
-    
-  // })
+  router.post('/api', (req, res) => {
+      const addData = req.body;
+      collection
+      post.save()
+      .then (data => res.json(data))
+      .catch((err) => {
+      console.error(err);
+      res.status(500);
+      res.json({status:500, error: err});
+    })
+  })
 
   return router
 

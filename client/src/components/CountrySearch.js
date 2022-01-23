@@ -3,7 +3,7 @@ import "./CountrySearch.css"
 
 const CountrySearch = ({handleChange}) => {
 
-      const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   const changeSearchValue = (event) => {
     event.preventDefault();
@@ -26,9 +26,10 @@ const CountrySearch = ({handleChange}) => {
       <input
         onChange={changeSearchValue}
         type="text"
-        name="searchTerm"
+        name="searchValue"
         placeholder="Select A Country"
         value={searchValue}/>
+      <input type="submit" value="Search"/>
     </form>        
     </div>
     )
