@@ -20,7 +20,7 @@
 }
 
 .card-header:first-child {
-    background-color: white;
+    background-color: transparent;
     border: none;
     border-style: none;
     box-shadow: none;
@@ -32,8 +32,10 @@
 }
 
 .accordion-item:first-of-type .accordion-button {
-    background-color: white;
+    background-color: transparent;
     border: none;
+    box-shadow: none;
+    z-index: 0;
 }
 
 .accordion-item:first-of-type {
@@ -42,4 +44,8 @@
 
 .accordion-item:last-of-type {
     border: none;
+}
+
+.card-header {
+    background-color: transparent;
 }

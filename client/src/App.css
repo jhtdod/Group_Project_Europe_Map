@@ -8,6 +8,16 @@
 }
 
 h1 {
-  text-align: center;
+  /* text-align: center; */
   z-index: 10;
+  padding-left: 8px;
+}
+
+.black-header {
+  font-weight: bold;
+}
+
+.new-colour-header{
+  color: rgb(44, 71, 160);
+  font-weight: bold;
 }

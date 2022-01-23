@@ -8,7 +8,8 @@ import LeafletMap from "./LeafletMap";
 import './MapContainer.css'
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
-import AccordionHeader from "react-bootstrap/esm/AccordionHeader";
+import Collapse from "react-bootstrap/esm/Collapse";
+import {MDBIcon} from "mdbreact"
 
 const MapContainer = () => {
 
@@ -39,19 +40,29 @@ const MapContainer = () => {
 
             <div className="right-side">
                 {selectedCountry ?
-                    <Accordion defaultActiveKey="0" style={{border: "none", zIndex:"0"}}>
+                    <Accordion defaultActiveKey="0" style={{ border: "none", zIndex: "0" }}>
                         <Accordion.Item eventKey="0">
-                            <Accordion.Header style={{border: "none", width:"5rem"}}></Accordion.Header>
-                            <Accordion.Body>
-                                <CountryCard selectedCountry={selectedCountry} />
-                            </Accordion.Body>
+                            <Accordion.Header style={{ border: "none" }}></Accordion.Header>
+                            <Collapse in={selectedCountry}>
+                                <Accordion.Body>
+                                    <CountryCard selectedCountry={selectedCountry} />
+                                </Accordion.Body>
+                            </Collapse>
                         </Accordion.Item>
                     </Accordion> :
-                    <Card style={{border: "none", zIndex:"0"}}>
-                        <Card.Header as='h4'>Select a Country</Card.Header>
+                    <Card style={{ border: "none", zIndex: "0", background: "transparent" }}>
+                        <Card.Header as='h4' style={{ margin: "8px" }}>Select a Country to Begin</Card.Header>
                     </Card>
                 }
-                <CountrySearch />
+                <Accordion style={{ border: "none" }}>
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header style={{ border: "none" }}><MDBIcon icon="search"/></Accordion.Header>
+                        <Accordion.Body>
+                            <CountrySearch />
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
+
             </div>
 
             <CountryList />
