@@ -41,6 +41,8 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["MAP_TILESET_URL"]
+    "whitelist": [
+      "MAP_TILESET_URL"
+    ]
   }
 }
