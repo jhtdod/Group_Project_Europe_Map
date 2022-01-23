@@ -1,29 +1,35 @@
 import React, { useState } from "react";
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import env from 'react-dotenv';
-import europe_json from "./NewEurope.json";
+import europe_json from "./../data/Europe.json";
 
 const LeafletMap = ({setSelectedCountry}) => {
 
     const countryStyle = {
-        fillColor: "#7eca7e",
+        // fillColor: "red",
+        fillColor: "green",
+        // fillColor: "blue",
         color: "grey",
-        fillOpacity: 0.3,
+        // fillOpacity: 0.3,
         weight: 1
     };
 
     const onEachCountry = (country, layer) => {
+
+        layer.options.fillOpacity = country.properties.COL
 
         layer.on({
             click: () => {
                 setSelectedCountry(country.properties.NAME);
             },
             mouseover: (event) => {
-                event.target.setStyle({weight: 3, fillOpacity: 1})
+                event.target.setStyle({color: "white", weight: 3, fillOpacity: 1})
             },
             mouseout: (event) => {
-                event.target.setStyle({weight: 1, fillOpacity: 0.3})
+                event.target.setStyle({color: "grey", weight: 1, fillOpacity: country.properties.COL})
             }
+
+        
         })
     }
 
