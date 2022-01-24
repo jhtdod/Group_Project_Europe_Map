@@ -18,10 +18,11 @@ const createRouter = function (collection) {
       })
   });
 
-  router.get('/:id', (req, res) => {
-    const id = req.params.id
+  router.get('/:name', (req, res) => {
+    const countryName = req.params.name
     collection
-      .findOne({ _id: ObjectID(id) })
+      .find({ $or : [ { "name.common" : countryName}, { country: countryName }]})
+      .toArray()
       .then((doc) => {res.json(doc)})
       .catch((err) => {
         console.error(err);
