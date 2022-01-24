@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import env from 'react-dotenv';
+import './MapContainer.css'
 import europe_json from "./../data/Europe.json";
 
 const LeafletMap = ({setSelectedCountry}) => {
@@ -36,9 +37,9 @@ const LeafletMap = ({setSelectedCountry}) => {
     return (
             <div className="leaflet-container">
             <MapContainer center={[50, 28]} zoom={4} attributionControl={false} zoomControl={false} scrollWheelZoom={false} doubleClickZoom= {false} closePopupOnClick= {false} dragging= {false} zoomSnap= {false} zoomDelta= {false} trackResize= {false} touchZoom= {false} scrollWheelZoom= {false}>
-                <TileLayer
+                {/* <TileLayer
                 url={env.MAP_TILESET_URL}
-                />
+                /> */}
                 <GeoJSON
                 style={countryStyle} 
                 data={europe_json}

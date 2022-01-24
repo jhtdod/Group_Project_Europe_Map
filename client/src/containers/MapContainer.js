@@ -3,6 +3,12 @@ import CountryCard from '../components/CountryCard';
 import CountryList from '../components/CountryList';
 import CountrySearch from '../components/CountrySearch';
 import LeafletMap from "./LeafletMap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from 'react-bootstrap/Card';
+import Accordion from 'react-bootstrap/Accordion';
+import Collapse from "react-bootstrap/esm/Collapse";
+import { Search } from 'react-bootstrap-icons';
+import './MapContainer.css'
 
 const MapContainer = () => {
 
@@ -10,12 +16,42 @@ const MapContainer = () => {
 
     return (
         <>
-            <h2>Map Container</h2>
-            <h3>Selected country is: {selectedCountry}</h3>
-            <LeafletMap setSelectedCountry={setSelectedCountry}/>
-            <CountryList/>
-            <CountryCard/>
-            <CountrySearch/>
+            <LeafletMap setSelectedCountry={setSelectedCountry} />
+
+            <div className="right-side">
+                <div className="dropdown-card">
+                    {selectedCountry ?
+                        <Accordion defaultActiveKey="0" style={{ border: "none", zIndex: "0" }}>
+                            <Accordion.Item eventKey="0">
+                                <Accordion.Header style={{ border: "none" }}></Accordion.Header>
+                                <Collapse in={selectedCountry}>
+                                    <Accordion.Body>
+                                        <CountryCard selectedCountry={selectedCountry} />
+                                    </Accordion.Body>
+                                </Collapse>
+                            </Accordion.Item>
+                        </Accordion> :
+                        <Card style={{ border: "none", zIndex: "0", background: "transparent" }}>
+                            <Card.Header as='h4' style={{ margin: "8px" }}>Select a Country to Begin</Card.Header>
+                        </Card>
+                    }
+                </div>
+
+                <div className="search-container">
+                    <Accordion style={{ border: "none" }}>
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header className="search-bar" style={{ border: "none" }}><Search/></Accordion.Header>
+                            <Accordion.Body>
+                                <CountrySearch />
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
+                </div>
+
+            </div>
+
+            <CountryList />
+
         </>
     )
 }
