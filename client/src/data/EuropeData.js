@@ -16,7 +16,6 @@ export const countryList = [
     "France",
     "Germany",
     "Greece",
-    "Vatican City",
     "Hungary",
     "Iceland",
     "Italy",
@@ -45,4 +44,5 @@ export const countryList = [
     "Switzerland",
     "United Kingdom",
     "Ukraine",
+    "Vatican City"
 ]
