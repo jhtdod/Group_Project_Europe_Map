@@ -7,16 +7,12 @@ import europe_json from "./../data/Europe.json";
 const LeafletMap = ({setSelectedCountry}) => {
 
     const countryStyle = {
-        // fillColor: "red",
         fillColor: "green",
-        // fillColor: "blue",
         color: "grey",
-        // fillOpacity: 0.3,
         weight: 1
     };
 
     const onEachCountry = (country, layer) => {
-
         layer.options.fillOpacity = country.properties.COL
 
         layer.on({
@@ -29,8 +25,6 @@ const LeafletMap = ({setSelectedCountry}) => {
             mouseout: (event) => {
                 event.target.setStyle({color: "grey", weight: 1, fillOpacity: country.properties.COL})
             }
-
-        
         })
     }
 
