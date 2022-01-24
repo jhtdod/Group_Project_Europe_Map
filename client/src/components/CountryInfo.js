@@ -1,7 +1,9 @@
 import React from "react";
 import './CountrySearch.css'
 
-const CountryInfo = () => {
+const CountryInfo = ({countryInfo}) => {
+
+    console.log(countryInfo);
 
     return (
 
