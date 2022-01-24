@@ -1,6 +1,13 @@
 .form {
-    margin: 25px;
+    margin: 0;
     padding: 10px
+}
+
+.form > input {
+    border: none;
+    box-shadow: none;
+    width: 150%;
+    height:15%;
 }
 
 .SearchList {
@@ -10,7 +17,10 @@
     flex-direction: column;
 }
 
-.ul {
-    margin: 25px;
+.SearchList > ul {
+    list-style-type: none;
+}
+
+.ul > li {
     list-style-type: none;
 }

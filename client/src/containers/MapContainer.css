@@ -1,6 +1,6 @@
 .right-side {
     position: fixed;
-    z-index: 10;
+    z-index: 100;
     right: 5%;
     top: 0;
     width: 370px;
@@ -17,6 +17,8 @@
 .card {
     border: none;
     border-radius: 0;
+    position: absolute;
+    z-index: 100;
 }
 
 .card-header:first-child {
@@ -71,6 +73,15 @@
 
 .dropdown-card {
     height: 500px;
+}
+
+.accordion-body {
+    padding: 0;
+    z-index: 1000;
+}
+
+.SearchList {
+    height: 95%;
 }
 
 @import '~bootstrap/dist/css/bootstrap.css';

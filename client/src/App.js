@@ -5,8 +5,8 @@ function App() {
   return (
     <>
       <h1 style={{zIndex: "10"}}>
-        <span class="black-header">Euro</span>
-        <span class="new-colour-header">peer-In</span>
+        <span className="black-header">Euro</span>
+        <span className="new-colour-header">peer-In</span>
       </h1>
       <MapContainer/>
     </>
