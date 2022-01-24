@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Chart } from "react-google-charts";
 import CountryCard from '../components/CountryCard';
 import CountryList from '../components/CountryList';
 import CountrySearch from '../components/CountrySearch';
-import { europe_data, europe_options, micro_europe_data, micro_europe_options } from './EuropeData';
 import LeafletMap from "./LeafletMap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
@@ -18,25 +16,6 @@ const MapContainer = () => {
 
     return (
         <>
-            {/* <Chart
-                chartEvents={[  
-                    { eventName: "select",
-                    callback: ({chartWrapper}) => {
-                        const chart = chartWrapper.getChart();
-                        const selection = chart.getSelection();
-                        if (selection.length === 0) return;
-                        const country = europe_data[selection[0].row + 1];
-                        setSelectedCountry(country);
-                        },
-                    },
-                ]}
-                className="map"
-                chartType="GeoChart"
-                width="85%"
-                height="75%"
-                data={europe_data}
-                options={europe_options}
-            /> */}
             <LeafletMap setSelectedCountry={setSelectedCountry} />
 
             <div className="right-side">
