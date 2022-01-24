@@ -20,6 +20,11 @@
 .SearchList > ul {
     list-style-type: none;
     cursor: pointer; 
+    border: 1px
+}
+
+.SearchList > li:hover{
+    border: 1px solid black
 }
 
 .ul > li {
