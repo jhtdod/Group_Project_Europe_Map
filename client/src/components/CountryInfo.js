@@ -1,12 +1,12 @@
 import React from "react";
+import './CountrySearch.css'
 
-const CountryInfo = ({country, countryList, onCountryClick}) => {
-    
-    const handleClick = () => onCountryClick(country);
+const CountryInfo = () => {
 
     return (
 
-        <li onClick={handleClick}>{country.name.common}</li>
+        <>Country Info</>
+        
     )
 
 }

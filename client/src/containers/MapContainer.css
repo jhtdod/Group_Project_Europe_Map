@@ -73,4 +73,8 @@
     height: 500px;
 }
 
+.accordion-body {
+    padding: 0;
+}
+
 @import '~bootstrap/dist/css/bootstrap.css';
