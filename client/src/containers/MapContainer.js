@@ -40,21 +40,23 @@ const MapContainer = () => {
             <LeafletMap setSelectedCountry={setSelectedCountry} />
 
             <div className="right-side">
-                {selectedCountry ?
-                    <Accordion defaultActiveKey="0" style={{ border: "none", zIndex: "0" }}>
-                        <Accordion.Item eventKey="0">
-                            <Accordion.Header style={{ border: "none" }}></Accordion.Header>
-                            <Collapse in={selectedCountry}>
-                                <Accordion.Body>
-                                    <CountryCard selectedCountry={selectedCountry} />
-                                </Accordion.Body>
-                            </Collapse>
-                        </Accordion.Item>
-                    </Accordion> :
-                    <Card style={{ border: "none", zIndex: "0", background: "transparent" }}>
-                        <Card.Header as='h4' style={{ margin: "8px" }}>Select a Country to Begin</Card.Header>
-                    </Card>
-                }
+                <div className="dropdown-card">
+                    {selectedCountry ?
+                        <Accordion defaultActiveKey="0" style={{ border: "none", zIndex: "0" }}>
+                            <Accordion.Item eventKey="0">
+                                <Accordion.Header style={{ border: "none" }}></Accordion.Header>
+                                <Collapse in={selectedCountry}>
+                                    <Accordion.Body>
+                                        <CountryCard selectedCountry={selectedCountry} />
+                                    </Accordion.Body>
+                                </Collapse>
+                            </Accordion.Item>
+                        </Accordion> :
+                        <Card style={{ border: "none", zIndex: "0", background: "transparent" }}>
+                            <Card.Header as='h4' style={{ margin: "8px" }}>Select a Country to Begin</Card.Header>
+                        </Card>
+                    }
+                </div>
 
                 <div className="search-container">
                     <Accordion style={{ border: "none" }}>
