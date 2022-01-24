@@ -42,25 +42,7 @@ const MapContainer = () => {
         <>
             <h2>Map Container</h2>
             <h3>Selected country is: {selectedCountry}</h3>
-            {/* <Chart
-                chartEvents={[  
-                    { eventName: "select",
-                    callback: ({chartWrapper}) => {
-                        const chart = chartWrapper.getChart();
-                        const selection = chart.getSelection();
-                        if (selection.length === 0) return;
-                        const country = europe_data[selection[0].row + 1];
-                        setSelectedCountry(country);
-                        },
-                    },
-                ]}
-                className="map"
-                chartType="GeoChart"
-                width="85%"
-                height="75%"
-                data={europe_data}
-                options={europe_options}
-            /> */}
+
             <div className="SearchList">
             <CountryList countryList={countryList} onCountryClick={onCountryClick} checkFilter={checkFilter}/>
             {selectedCountry ? <CountryInfo country = {selectedCountry}/> : null}
