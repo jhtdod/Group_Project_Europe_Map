@@ -17,7 +17,7 @@ const CountryInfo = ({countryInfo}) => {
         <p>Population: {countryInfo[1].population}</p>
         <p>Hello: {countryInfo[0].greeting}</p>
         <p>National Animal: {countryInfo[0].animal}</p>
-        <p>National Dish: {countryInfo[1].dish}</p>
+        <p>National Dish: {countryInfo[0].dish}</p>
         </>
         
     )
