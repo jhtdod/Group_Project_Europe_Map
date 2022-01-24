@@ -6,6 +6,6 @@ export const getCountries = () => {
 }
 
 export const getCountry = function (country) {
-    return fetch(baseUrl + country)
+    return fetch(baseURL + country)
         .then(res => res.json())
 };
