@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 const CountryCard = ({ selectedCountry }) => {
     return (
         <>
-            <Card style={{width: '18rem'}}>
+            <Card style={{width: '100%', height: '100%'}}>
                 <Card.Header as='h4'>{selectedCountry}</Card.Header>
                 <Card.Body>
                     <Card.Text>

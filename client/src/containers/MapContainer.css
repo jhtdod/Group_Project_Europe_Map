@@ -80,4 +80,8 @@
     z-index: 1000;
 }
 
+.SearchList {
+    height: 95%;
+}
+
 @import '~bootstrap/dist/css/bootstrap.css';

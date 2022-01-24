@@ -61,7 +61,7 @@ const MapContainer = () => {
                                 </Accordion.Body>
                             </Accordion.Item>
                         </Accordion> :
-                        <Card style={{ border: "none", zIndex: "0", background: "transparent" }}>
+                        <Card style={{ border: "none", background: "transparent" }}>
                             <Card.Header as='h4' style={{ margin: "8px" }}>Select a Country to Begin</Card.Header>
                         </Card>
                     }
