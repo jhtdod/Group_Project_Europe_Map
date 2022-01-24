@@ -11,6 +11,11 @@ const MapContainer = () => {
 
     const [selectedCountry, setSelectedCountry] = useState("")
     const [countryList, setCountryList] = useState([])
+    const [filter, setFilter] = useState('')
+
+    const checkFilter = (country) => {
+        return (country.name.common.toUpperCase().includes(filter.toUpperCase()))
+    }
 
 
     const searchForCountry = (searchValue) => {
@@ -57,11 +62,11 @@ const MapContainer = () => {
                 options={europe_options}
             /> */}
             <div className="SearchList">
-            <CountryList countryList={countryList} onCountryClick={onCountryClick}/>
+            <CountryList countryList={countryList} onCountryClick={onCountryClick} checkFilter={checkFilter}/>
             {selectedCountry ? <CountryInfo country = {selectedCountry}/> : null}
             </div>
             <div className="SearchBar">
-            <CountrySearch handleChange={searchForCountry}/>
+            <CountrySearch handleChange={searchForCountry} filter={filter} setFilter={setFilter}/>
             </div>
 
         </>

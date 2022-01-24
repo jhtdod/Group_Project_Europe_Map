@@ -74,6 +74,7 @@ const createRouter = function (collection) {
       collection
       post.save()
       .then (data => res.json(data))
+      
       .catch((err) => {
       console.error(err);
       res.status(500);
