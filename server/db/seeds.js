@@ -14,7 +14,7 @@ db.countries.insertMany([
 {"country" : "Czech Republic", "dish" : "Roast pork with dumplings and sauerkraut", "greeting": "Ahoj", "animal" : "Two-tailed lion"},
 {"country" : "Denmark", "dish" : "Fried pork and potato-based dish", "greeting": "Hej", "animal" : "Mute swan"},
 {"country" : "Estonia", "dish" : "Verivorst", "greeting": "Tere", "animal" : "Barn swallow"},
-{"country" : "Finland", "dish" : "Karjalanpaisti, Mämmi, Sautéed reindeer", "greeting": "Moi", "animal" : "Brown bear, Whooper swan"},
+{"country" : "Finland", "dish" : "Karjalanpaisti, Mämmi, Sautéed reindeer", "greeting": "Moi", "animal" : "Whooper swan"},
 {"country" : "France", "dish" : "Crêpe, Pot-au-feu,  Macaron, Bisque", "greeting": "Bonjour", "animal" : "Gallic rooster"},
 {"country" : "Georgia", "dish" : "Khachapuri, khinkali", "greeting" : "Gamarjoba", "animal" : "Wolf"},
 {"country" : "Germany", "dish" : "Currywurst, Sauerbraten, Bratwurst", "greeting": "Hallo", "animal" : "Black eagle"},
