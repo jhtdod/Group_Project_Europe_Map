@@ -4,7 +4,7 @@ import env from 'react-dotenv';
 import './MapContainer.css'
 import europe_json from "./../data/Europe.json";
 
-const LeafletMap = ({setSelectedCountry, handleShow}) => {
+const LeafletMap = ({setSelectedCountry, handleShow, getCountry, setCountryInfo}) => {
 
     const countryStyle = {
         fillColor: "green",
@@ -17,6 +17,8 @@ const LeafletMap = ({setSelectedCountry, handleShow}) => {
 
         layer.on({
             click: () => {
+                getCountry(country.properties.NAME)
+                    .then(result => setCountryInfo(result));
                 setSelectedCountry(country.properties.NAME);
                 handleShow();
             },

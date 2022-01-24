@@ -13,19 +13,23 @@ import CloseButton from 'react-bootstrap/CloseButton';
 import { Search } from 'react-bootstrap-icons';
 import './MapContainer.css'
 import { countryList } from './../data/EuropeData'
+import { getCountry } from "../services/EuroService";
 
 const MapContainer = () => {
 
-    const [selectedCountry, setSelectedCountry] = useState("")
+    const [selectedCountry, setSelectedCountry] = useState(null)
     const [filter, setFilter] = useState('')
     const [show, setShow] = useState(false)
+    const [countryInfo, setCountryInfo] = useState(null)
 
     const checkFilter = (country) => {
         return (country.toUpperCase().includes(filter.toUpperCase()))
     }
 
     const onCountryClick = (country) => {
-        setSelectedCountry(country)
+        getCountry(country)
+        .then(result => setCountryInfo(result));
+        setSelectedCountry(country);
         handleShow();
     }
 
@@ -34,7 +38,7 @@ const MapContainer = () => {
 
     return (
         <>
-            <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow}/>
+            <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow} getCountry={getCountry} setCountryInfo={setCountryInfo}/>
 
             <div className="right-side">
                 <div className="dropdown-card">
@@ -46,7 +50,7 @@ const MapContainer = () => {
                             </Card.Title>
                         </Card.Header>
                         <Card.Body>
-                            <CountryCard selectedCountry={selectedCountry} />
+                            <CountryCard selectedCountry={selectedCountry} countryInfo={countryInfo} />
                         </Card.Body>
                     </Card> :
                         <Card style={{height:"23rem", width:"23rem"}}>
