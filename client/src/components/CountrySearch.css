@@ -19,6 +19,7 @@
 
 .SearchList > ul {
     list-style-type: none;
+    cursor: pointer; 
 }
 
 .ul > li {
