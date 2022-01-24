@@ -11,6 +11,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Collapse from "react-bootstrap/esm/Collapse";
 import { Search } from 'react-bootstrap-icons';
 import './MapContainer.css'
+import {europe_data} from './../data/EuropeData'
 
 const MapContainer = () => {
 
