@@ -8,7 +8,8 @@ import LeafletMap from "./LeafletMap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
-import Collapse from "react-bootstrap/esm/Collapse";
+import Modal from 'react-bootstrap/Modal';
+import CloseButton from 'react-bootstrap/CloseButton';
 import { Search } from 'react-bootstrap-icons';
 import './MapContainer.css'
 import { countryList } from './../data/EuropeData'
@@ -17,6 +18,7 @@ const MapContainer = () => {
 
     const [selectedCountry, setSelectedCountry] = useState("")
     const [filter, setFilter] = useState('')
+    const [show, setShow] = useState(false)
 
     const checkFilter = (country) => {
         return (country.toUpperCase().includes(filter.toUpperCase()))
@@ -24,13 +26,37 @@ const MapContainer = () => {
 
     const onCountryClick = (country) => {
         setSelectedCountry(country)
+        handleShow();
     }
+
+    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
 
     return (
         <>
-            <LeafletMap setSelectedCountry={setSelectedCountry} />
+            <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow}/>
 
             <div className="right-side">
+                <div className="dropdown-card">
+                {show ? 
+                    <Card  style={{height:"23rem", width:"22rem"}}>
+                        <Card.Header>
+                            <Card.Title>
+                                <CloseButton onClick={handleClose}/>
+                            </Card.Title>
+                        </Card.Header>
+                        <Card.Body>
+                            <CountryCard selectedCountry={selectedCountry} />
+                        </Card.Body>
+                    </Card> :
+                        <Card style={{height:"23rem", width:"22rem"}}>
+                            <Card.Body >
+                                <h4>Select a country on the map or search in the list below</h4>
+                            </Card.Body>
+                        </Card> }
+            </div>
+
+            {/* <div className="right-side">
                 <div className="dropdown-card">
                     {selectedCountry ?
                         <Accordion defaultActiveKey="0" style={{ border: "none", zIndex: "0" }}>
@@ -41,11 +67,9 @@ const MapContainer = () => {
                                 </Accordion.Body>
                             </Accordion.Item>
                         </Accordion> :
-                        <Card style={{ border: "none", background: "transparent" }}>
-                            <Card.Header as='h4' style={{ margin: "8px" }}>Select a Country to Begin</Card.Header>
-                        </Card>
+                        
                     }
-                </div>
+                </div> */}
 
                 <div className="search-container">
                     <Accordion style={{ border: "none" }}>

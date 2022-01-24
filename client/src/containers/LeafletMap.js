@@ -4,7 +4,7 @@ import env from 'react-dotenv';
 import './MapContainer.css'
 import europe_json from "./../data/Europe.json";
 
-const LeafletMap = ({setSelectedCountry}) => {
+const LeafletMap = ({setSelectedCountry, handleShow}) => {
 
     const countryStyle = {
         fillColor: "green",
@@ -18,6 +18,7 @@ const LeafletMap = ({setSelectedCountry}) => {
         layer.on({
             click: () => {
                 setSelectedCountry(country.properties.NAME);
+                handleShow();
             },
             mouseover: (event) => {
                 event.target.setStyle({color: "white", weight: 3, fillOpacity: 1})
