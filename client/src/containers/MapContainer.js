@@ -5,11 +5,12 @@ import CountryList from '../components/CountryList';
 import CountrySearch from '../components/CountrySearch';
 import { europe_data, europe_options, micro_europe_data, micro_europe_options } from './EuropeData';
 import LeafletMap from "./LeafletMap";
-import './MapContainer.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 import Collapse from "react-bootstrap/esm/Collapse";
-import {MDBIcon} from "mdbreact"
+import { Search } from 'react-bootstrap-icons';
+import './MapContainer.css'
 
 const MapContainer = () => {
 
@@ -54,14 +55,17 @@ const MapContainer = () => {
                         <Card.Header as='h4' style={{ margin: "8px" }}>Select a Country to Begin</Card.Header>
                     </Card>
                 }
-                <Accordion style={{ border: "none" }}>
-                    <Accordion.Item eventKey="0">
-                        <Accordion.Header style={{ border: "none" }}><MDBIcon icon="search"/></Accordion.Header>
-                        <Accordion.Body>
-                            <CountrySearch />
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </Accordion>
+
+                <div className="search-container">
+                    <Accordion style={{ border: "none" }}>
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header className="search-bar" style={{ border: "none" }}><Search/></Accordion.Header>
+                            <Accordion.Body>
+                                <CountrySearch />
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
+                </div>
 
             </div>
 

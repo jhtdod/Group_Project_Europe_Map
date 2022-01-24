@@ -1,6 +1,5 @@
 import './App.css';
 import MapContainer from './containers/MapContainer';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

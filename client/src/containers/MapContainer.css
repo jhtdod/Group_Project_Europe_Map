@@ -49,3 +49,23 @@
 .card-header {
     background-color: transparent;
 }
+
+.accordion-button::after {
+    background-image: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: none;
+}
+
+.search-bar {
+    background-image: none;
+}
+
+.search-container {
+    position: fixed;
+    top: 60%;
+    width: 370px;
+}
+
+@import '~bootstrap/dist/css/bootstrap.css';
