@@ -5,17 +5,7 @@ export const getCountries = () => {
         .then(res => res.json())
 }
 
-export const postCountry = (payload) => {
-    return fetch(baseURL, {
-        method: 'POST',
-        body: JSON.stringify(payload),
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(res => res.json())
-}
-
-export const deleteCountry = (id) => {
-    return fetch(baseURL + id, {
-        method: 'DELETE'
-    })
-}
+export const getCountry = function (country) {
+    return fetch(baseURL + country)
+        .then(res => res.json())
+};

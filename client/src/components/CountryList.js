@@ -1,9 +1,19 @@
 import React from "react";
+import CountryListItem from "./CountryListItem";
+import './CountrySearch.css'
 
-const CountryList = () => {
+const CountryList = ({countryList, onCountryClick, checkFilter}) => {
+    
+    const listOfCountries = countryList.map((country, index) => {
+        if (checkFilter(country)) {
+        return <CountryListItem key={index} onCountryClick={onCountryClick} country={country}/>
+        }
+        return null
+    })
+
     return (
         <>
-            <h2>Country List</h2>
+            <ul>{listOfCountries}</ul>
         </>
     )
 }

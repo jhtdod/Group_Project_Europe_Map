@@ -10,7 +10,7 @@ const createRouter = function (collection) {
     collection
       .find()
       .toArray()
-      .then((docs) => {res.json(docs)})
+      .then((docs) => (res.json(docs)))
       .catch((err) => {
         console.error(err);
         res.status(500);
@@ -18,10 +18,11 @@ const createRouter = function (collection) {
       })
   });
 
-  router.get('/:id', (req, res) => {
-    const id = req.params.id
+  router.get('/:name', (req, res) => {
+    const countryName = req.params.name
     collection
-      .findOne({ _id: ObjectID(id) })
+      .find({ $or : [ { "name.common" : countryName}, { country: countryName }]})
+      .toArray()
       .then((doc) => {res.json(doc)})
       .catch((err) => {
         console.error(err);
@@ -63,6 +64,18 @@ const createRouter = function (collection) {
     .then((result) => {
       res.json(result);
     }).catch((err) => {
+      console.error(err);
+      res.status(500);
+      res.json({status:500, error: err});
+    })
+  })
+
+  router.post('/api', (req, res) => {
+      const addData = req.body;
+      collection
+      post.save()
+      .then (data => res.json(data))
+      .catch((err) => {
       console.error(err);
       res.status(500);
       res.json({status:500, error: err});
