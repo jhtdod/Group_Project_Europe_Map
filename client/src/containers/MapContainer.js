@@ -11,40 +11,20 @@ import Accordion from 'react-bootstrap/Accordion';
 import Collapse from "react-bootstrap/esm/Collapse";
 import { Search } from 'react-bootstrap-icons';
 import './MapContainer.css'
-import { europe_data } from './../data/EuropeData'
+import { countryList } from './../data/EuropeData'
 
 const MapContainer = () => {
 
     const [selectedCountry, setSelectedCountry] = useState("")
-    const [countryList, setCountryList] = useState([])
     const [filter, setFilter] = useState('')
 
     const checkFilter = (country) => {
-        return (country.name.common.toUpperCase().includes(filter.toUpperCase()))
+        return (country.toUpperCase().includes(filter.toUpperCase()))
     }
 
-
-    const searchForCountry = (searchValue) => {
-        const searched = searchValue.toLowerCase()
-        const values = europe_data
-        let searchedCountry = values.filter(name => name.toLowerCase().includes(searched))
-        console.log(searchedCountry)
-        setSelectedCountry(searchedCountry)
+    const onCountryClick = (country) => {
+        setSelectedCountry(country)
     }
-
-    const getCountries = () => {
-        fetch('https://restcountries.com/v3.1/region/europe')
-            .then(res => res.json())
-            .then(data => setCountryList(data));
-    }
-
-    const onCountryClick = (countryName) => {
-        setSelectedCountry(countryName)
-    }
-
-    useEffect(() => {
-        getCountries();
-    }, [])
 
     return (
         <>
