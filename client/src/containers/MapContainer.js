@@ -39,7 +39,7 @@ const MapContainer = () => {
             <div className="right-side">
                 <div className="dropdown-card">
                 {show ? 
-                    <Card  style={{height:"23rem", width:"22rem"}}>
+                    <Card  style={{height:"23rem", width:"23rem"}}>
                         <Card.Header>
                             <Card.Title>
                                 <CloseButton onClick={handleClose}/>
@@ -49,7 +49,7 @@ const MapContainer = () => {
                             <CountryCard selectedCountry={selectedCountry} />
                         </Card.Body>
                     </Card> :
-                        <Card style={{height:"23rem", width:"22rem"}}>
+                        <Card style={{height:"23rem", width:"23rem"}}>
                             <Card.Body >
                                 <h4>Select a country on the map or search in the list below</h4>
                             </Card.Body>
