@@ -11,7 +11,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Collapse from "react-bootstrap/esm/Collapse";
 import { Search } from 'react-bootstrap-icons';
 import './MapContainer.css'
-import {europe_data} from './../data/EuropeData'
+import { europe_data } from './../data/EuropeData'
 
 const MapContainer = () => {
 
@@ -25,22 +25,24 @@ const MapContainer = () => {
 
 
     const searchForCountry = (searchValue) => {
-            const searched = searchValue.toLowerCase()
-            const values = europe_data
-            let searchedCountry = values.filter(name => name.toLowerCase().includes(searched))
-            console.log(searchedCountry)
-            setSelectedCountry(searchedCountry)
-    }    
+        const searched = searchValue.toLowerCase()
+        const values = europe_data
+        let searchedCountry = values.filter(name => name.toLowerCase().includes(searched))
+        console.log(searchedCountry)
+        setSelectedCountry(searchedCountry)
+    }
 
-        const getCountries = () => {
+    const getCountries = () => {
         fetch('https://restcountries.com/v3.1/region/europe')
-        .then(res => res.json())
-        .then(data => setCountryList(data));
+            .then(res => res.json())
+            .then(data => setCountryList(data));
     }
-        const onCountryClick = (country) => {
-        setSelectedCountry(country)
+
+    const onCountryClick = (countryName) => {
+        setSelectedCountry(countryName)
     }
-        useEffect(() => {
+
+    useEffect(() => {
         getCountries();
     }, [])
 
@@ -54,11 +56,9 @@ const MapContainer = () => {
                         <Accordion defaultActiveKey="0" style={{ border: "none", zIndex: "0" }}>
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header style={{ border: "none" }}></Accordion.Header>
-                                <Collapse in={selectedCountry}>
-                                    <Accordion.Body>
-                                        <CountryCard selectedCountry={selectedCountry} />
-                                    </Accordion.Body>
-                                </Collapse>
+                                <Accordion.Body style={{ height: "25rem" }}>
+                                    <CountryCard selectedCountry={selectedCountry} />
+                                </Accordion.Body>
                             </Accordion.Item>
                         </Accordion> :
                         <Card style={{ border: "none", zIndex: "0", background: "transparent" }}>
@@ -70,22 +70,19 @@ const MapContainer = () => {
                 <div className="search-container">
                     <Accordion style={{ border: "none" }}>
                         <Accordion.Item eventKey="0">
-                            <Accordion.Header className="search-bar" style={{ border: "none" }}><Search/></Accordion.Header>
-                            <Accordion.Body>
-                                <CountrySearch />
+                            <Accordion.Header className="search-bar" style={{ border: "none" }}><Search /><CountrySearch setFilter={setFilter}/></Accordion.Header>
+                            <Accordion.Body style = {{ height:"13rem" }}>
+                                <div className="SearchList">
+                                    <CountryList countryList={countryList} onCountryClick={onCountryClick} checkFilter={checkFilter} />
+                                </div>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
                 </div>
 
             </div>
-            <div className="SearchList">
-            <CountryList countryList={countryList} onCountryClick={onCountryClick} checkFilter={checkFilter}/>
-            {selectedCountry ? <CountryInfo country = {selectedCountry}/> : null}
-            </div>
-            <div className="SearchBar">
-            <CountrySearch handleChange={searchForCountry} filter={filter} setFilter={setFilter}/>
-            </div>
+
+
         </>
     )
 }

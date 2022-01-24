@@ -1,23 +1,23 @@
 import React from "react";
-import CountryInfo from './CountryInfo'
+import CountryListItem from "./CountryListItem";
+import './CountrySearch.css'
 
 const CountryList = ({countryList, onCountryClick, checkFilter}) => {
     
-        const alphabetiseCountries = (country) => {
-        console.log(countryList)
+    
+    const alphabetiseCountries = (country) => {
         countryList.sort((a, b) => {
         if(a.name.common < b.name.common) {return -1;}
         if(a.name.common > b.name.common) {return 1;}
         return 0
         })
-        console.log(countryList)
     }
 
     alphabetiseCountries()
 
     const listOfCountries = countryList.map((country, index) => {
         if (checkFilter(country)) {
-        return <CountryInfo key={index} onCountryClick={onCountryClick} country={country} countryList={countryList}/>
+        return <CountryListItem key={index} onCountryClick={onCountryClick} country={country} countryList={countryList}/>
         }
         return null
     })
