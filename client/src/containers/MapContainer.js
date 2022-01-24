@@ -82,9 +82,7 @@ const MapContainer = () => {
             <CountryList countryList={countryList} onCountryClick={onCountryClick} checkFilter={checkFilter}/>
             {selectedCountry ? <CountryInfo country = {selectedCountry}/> : null}
             </div>
-            <div className="SearchBar">
-            <CountrySearch handleChange={searchForCountry} filter={filter} setFilter={setFilter}/>
-            </div>
+            
         </>
     )
 }
