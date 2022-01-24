@@ -10,12 +10,12 @@ const createRouter = function (collection) {
     collection
       .find()
       .toArray()
-      .then((docs) => {res.json(docs)})
+      .then((docs) => (console.log(docs))
       .catch((err) => {
         console.error(err);
         res.status(500);
         res.json({status:500, error: err});
-      })
+      }))
   });
 
   router.get('/:id', (req, res) => {
@@ -63,6 +63,19 @@ const createRouter = function (collection) {
     .then((result) => {
       res.json(result);
     }).catch((err) => {
+      console.error(err);
+      res.status(500);
+      res.json({status:500, error: err});
+    })
+  })
+
+  router.post('/api', (req, res) => {
+      const addData = req.body;
+      collection
+      post.save()
+      .then (data => res.json(data))
+      
+      .catch((err) => {
       console.error(err);
       res.status(500);
       res.json({status:500, error: err});

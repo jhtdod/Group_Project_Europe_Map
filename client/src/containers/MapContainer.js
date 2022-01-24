@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CountryCard from '../components/CountryCard';
+import CountryInfo from '../components/CountryInfo';
 import CountryList from '../components/CountryList';
 import CountrySearch from '../components/CountrySearch';
+import "../components/CountrySearch.css"
 import LeafletMap from "./LeafletMap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
@@ -13,6 +15,33 @@ import './MapContainer.css'
 const MapContainer = () => {
 
     const [selectedCountry, setSelectedCountry] = useState("")
+    const [countryList, setCountryList] = useState([])
+    const [filter, setFilter] = useState('')
+
+    const checkFilter = (country) => {
+        return (country.name.common.toUpperCase().includes(filter.toUpperCase()))
+    }
+
+
+    const searchForCountry = (searchValue) => {
+            const searched = searchValue.toLowerCase()
+            const values = europe_data
+            let searchedCountry = values.filter(name => name.toLowerCase().includes(searched))
+            console.log(searchedCountry)
+            setSelectedCountry(searchedCountry)
+    }    
+
+        const getCountries = () => {
+        fetch('https://restcountries.com/v3.1/region/europe')
+        .then(res => res.json())
+        .then(data => setCountryList(data));
+    }
+        const onCountryClick = (country) => {
+        setSelectedCountry(country)
+    }
+        useEffect(() => {
+        getCountries();
+    }, [])
 
     return (
         <>
@@ -49,9 +78,13 @@ const MapContainer = () => {
                 </div>
 
             </div>
-
-            <CountryList />
-
+            <div className="SearchList">
+            <CountryList countryList={countryList} onCountryClick={onCountryClick} checkFilter={checkFilter}/>
+            {selectedCountry ? <CountryInfo country = {selectedCountry}/> : null}
+            </div>
+            <div className="SearchBar">
+            <CountrySearch handleChange={searchForCountry} filter={filter} setFilter={setFilter}/>
+            </div>
         </>
     )
 }

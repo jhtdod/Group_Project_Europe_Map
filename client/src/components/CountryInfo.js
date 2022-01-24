@@ -1,11 +1,14 @@
 import React from "react";
 
-const CountryInfo = () => {
+const CountryInfo = ({country, countryList, onCountryClick}) => {
+    
+    const handleClick = () => onCountryClick(country);
+
     return (
-        <>
-            <h4>Country Info</h4>
-        </>
+
+        <li onClick={handleClick}>{country.name.common}</li>
     )
+
 }
 
 export default CountryInfo;

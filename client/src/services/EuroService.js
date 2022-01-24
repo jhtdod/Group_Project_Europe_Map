@@ -1,4 +1,5 @@
 const baseURL = 'http://localhost:5000/api/countries/'
+const countryURL = 'https://restcountries.com/v3.1/region/europe'
 
 export const getCountries = () => {
     return fetch(baseURL)
@@ -19,3 +20,18 @@ export const deleteCountry = (id) => {
         method: 'DELETE'
     })
 }
+
+// export const getData = (payload) => {
+//     return fetch(countryURL, {
+//         method: 'POST',
+//         body: JSON.stringify(payload),
+//         headers: { 'Content-Type': 'application/json' }
+//     })
+//     .then(res => res.json())
+//     .then(data.save() - returns promise
+//    
+
+//         })
+//     )
+//     })
+// 
