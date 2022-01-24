@@ -56,21 +56,6 @@ const MapContainer = () => {
                         </Card> }
             </div>
 
-            {/* <div className="right-side">
-                <div className="dropdown-card">
-                    {selectedCountry ?
-                        <Accordion defaultActiveKey="0" style={{ border: "none", zIndex: "0" }}>
-                            <Accordion.Item eventKey="0">
-                                <Accordion.Header style={{ border: "none" }}></Accordion.Header>
-                                <Accordion.Body style={{ height: "25rem" }}>
-                                    <CountryCard selectedCountry={selectedCountry} />
-                                </Accordion.Body>
-                            </Accordion.Item>
-                        </Accordion> :
-                        
-                    }
-                </div> */}
-
                 <div className="search-container">
                     <Accordion style={{ border: "none" }}>
                         <Accordion.Item eventKey="0">
