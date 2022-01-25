@@ -34,11 +34,14 @@ const MapContainer = () => {
     }
 
     const handleShow = () => setShow(true);
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false); 
+        setCountryInfo(null);
+    }
 
     return (
         <>
-            <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow} getCountry={getCountry} setCountryInfo={setCountryInfo}/>
+            <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow} getCountry={getCountry} setCountryInfo={setCountryInfo} countryInfo={countryInfo}/>
 
             <div className="right-side">
                 <div className="dropdown-card">

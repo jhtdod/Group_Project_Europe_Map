@@ -86,3 +86,8 @@ body.wrong {
 .time-box{
     border-radius: 5px black;
 }
+
+#header {
+    display: flex;
+    justify-content: space-between;
+}
