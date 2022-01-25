@@ -24,33 +24,33 @@ const questions = [
             {text: "Valletta", correct: false}
         ]
     },
-    {
-        question: "What is capital of Montenegro?",
-        answers: [
-            {text: "Skopje", correct: false},
-            {text: "Podgorica", correct: true},
-            {text: "Zagreb", correct: false},
-            {text: "Edinburgh", correct: false}
-        ]
-    },
-    {
-        question: "What is capital of Sweden?",
-        answers: [
-            {text: "Copenhagen", correct: false},
-            {text: "Oslo", correct: false},
-            {text: "Dublin", correct: false},
-            {text: "Stockholm", correct: true}
-        ]
-    },
-    {
-        question: "What is capital of Latvia?",
-        answers: [
-            {text: "Riga", correct: true},
-            {text: "Rome", correct: false},
-            {text: "Reykjavik", correct: false},
-            {text: "Ljubljana", correct: false}
-        ]
-    },
+    // {
+    //     question: "What is capital of Montenegro?",
+    //     answers: [
+    //         {text: "Skopje", correct: false},
+    //         {text: "Podgorica", correct: true},
+    //         {text: "Zagreb", correct: false},
+    //         {text: "Edinburgh", correct: false}
+    //     ]
+    // },
+    // {
+    //     question: "What is capital of Sweden?",
+    //     answers: [
+    //         {text: "Copenhagen", correct: false},
+    //         {text: "Oslo", correct: false},
+    //         {text: "Dublin", correct: false},
+    //         {text: "Stockholm", correct: true}
+    //     ]
+    // },
+    // {
+    //     question: "What is capital of Latvia?",
+    //     answers: [
+    //         {text: "Riga", correct: true},
+    //         {text: "Rome", correct: false},
+    //         {text: "Reykjavik", correct: false},
+    //         {text: "Ljubljana", correct: false}
+    //     ]
+    // },
     
 ]
 let shuffledQuestions, currentQuestionIndex
@@ -60,6 +60,7 @@ startButton.addEventListener('click', startGame)
 function startGame () {
     countdown()
     startButton.classList.add('hide')
+    answerButtonsElement.classList.remove('hide')
     //randomise order that Qs come up - assign float between 1-0 then take away 0.5 then 1 is gunna be less than 0, 1 is gunna be positive 50% of the time. currentquestionindex starts at 0 ie the very first Q
     shuffledQuestions = questions.sort( () => Math.random() - .5)
     currentQuestionIndex = 0
@@ -73,7 +74,8 @@ function setNextQuestion () {
 }
 
 function resetState () {
-    clearStatusClass(document.body)
+    clearStatusClass(document.body) //changes colour back to blue hue
+    questionContainerElement.classList.remove('hide')
     nextButton.classList.add('hide')
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild
@@ -142,8 +144,7 @@ function startTimer(duration, display) {
     seconds;
 
     function timer() {
-        // get the number of seconds that have elapsed since 
-        // startTimer() was called on start click
+
         diff = duration - (((Date.now() - start) / 1000) | 0);
     
         minutes = (diff / 60) | 0;
@@ -154,24 +155,29 @@ function startTimer(duration, display) {
     
         display.textContent = minutes + ":" + seconds; 
     
-        if (diff <= 0) {
+    if (diff <= 0) {
             // add one second so that the count down starts at the full duration
             // example 10:00 not 09:59
             start = Date.now() + 1000;
         }
+    if (diff === 0){
+            stopTimer()
+            startButton.innerText = 'Restart'
+            startButton.classList.remove('hide')
+            nextButton.classList.add('hide')
+            answerButtonsElement.classList.add('hide')
+        }
     };
     timer()
     timing = setInterval(timer, 1000);
-
-}
+};
 
 function stopTimer() {
     clearInterval(timing)
-    
-}
+};
 
 function countdown (){
-    var tenMinutes = 60 * 10,
+    var tenMinutes = 60 * 0.1,
         display = document.querySelector('#time');
     startTimer(tenMinutes, display);
 };
