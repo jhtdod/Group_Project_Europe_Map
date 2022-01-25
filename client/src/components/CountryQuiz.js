@@ -19,61 +19,54 @@ const CountryQuiz = ({countryList, getCountry, setCountryInfo}) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        checkAnswer(formData.answer.trim(), event)
+        checkAnswer(formData.answer.trim(), event);
     }
 
     const checkAnswer = (answer, event) => {
+        const correctAnswer = () => {
+            setMessage("Correct!");
+            quizList.pop();
+            event.target[0].value = "";
+            setScore(score + 1);
+        }
+
+        const wrongAnswer = () => {
+            setMessage("That's not right - try again?")
+        }
+
         switch (quizList.length) {
             case 0:
-                console.log('End of list');
                 break;
             case 1:
                 if ((quizList[0]).toUpperCase() === answer.toUpperCase()){
-                    setMessage("Correct!")
-                    quizList.pop()
-                    event.target[0].value = ""
-                    setScore(score + 1)
+                    correctAnswer()
+                    setMessage("Wow! You named every country in Europe!");
                 } else {
-                    setMessage("That's not right - try again?")
+                    wrongAnswer()
                 }
                 break;
             default:
                 if ((quizList[quizList.length - 1]).toUpperCase() === answer.toUpperCase()){
-                    setMessage("Correct!")
-                    quizList.pop()
+                    correctAnswer()
                     getCountry(quizList[quizList.length - 1])
                     .then(result => setCountryInfo(result));
-                    event.target[0].value = ""
-                    setScore(score + 1)
                 } else {
-                    setMessage("That's not right - try again?")
+                    wrongAnswer()
                 }
         }
-        // if (quizList.length > 1){
-        //     if ((quizList[quizList.length - 1]).toUpperCase() === answer.toUpperCase()){
-        //         setMessage("Correct!")
-        //         quizList.pop()
-        //         getCountry(quizList[quizList.length - 1])
-        //         .then(result => setCountryInfo(result));
-        //         event.target[0].value = ""
-        //         setScore(score + 1)
-        //     } else {
-        //         setMessage("That's not right - try again?")
-        //     }
-        // } 
     }
 
+        return (
+            <>
+            <h5>Can you name the countries?</h5>
+            <form onSubmit={onSubmit}>
+                <input type="text" id="answer" onChange={handleChange}/>
+                <input type="submit"/>
+            </form>
+            <p>{message} {score}/46</p>
+            </>
+        )
     
-
-    return (
-        <>
-        <form onSubmit={onSubmit}>
-            <input type="text" id="answer" onChange={handleChange}/>
-            <input type="submit"/>
-        </form>
-        <p>{message} {score}/46</p>
-        </>
-    )
 }
 
 export default CountryQuiz;
