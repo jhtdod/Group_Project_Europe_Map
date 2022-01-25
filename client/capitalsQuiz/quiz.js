@@ -5,7 +5,6 @@ const questionContainerElement = document.getElementById('question-container')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const scoreElement = document.getElementById('score-container')
 
-
 const questions = [
     {
         question: "What is capital of Spain?",
