@@ -24,33 +24,33 @@ const questions = [
             {text: "Valletta", correct: false}
         ]
     },
-    // {
-    //     question: "What is capital of Montenegro?",
-    //     answers: [
-    //         {text: "Skopje", correct: false},
-    //         {text: "Podgorica", correct: true},
-    //         {text: "Zagreb", correct: false},
-    //         {text: "Edinburgh", correct: false}
-    //     ]
-    // },
-    // {
-    //     question: "What is capital of Sweden?",
-    //     answers: [
-    //         {text: "Copenhagen", correct: false},
-    //         {text: "Oslo", correct: false},
-    //         {text: "Dublin", correct: false},
-    //         {text: "Stockholm", correct: true}
-    //     ]
-    // },
-    // {
-    //     question: "What is capital of Latvia?",
-    //     answers: [
-    //         {text: "Riga", correct: true},
-    //         {text: "Rome", correct: false},
-    //         {text: "Reykjavik", correct: false},
-    //         {text: "Ljubljana", correct: false}
-    //     ]
-    // },
+    {
+        question: "What is capital of Montenegro?",
+        answers: [
+            {text: "Skopje", correct: false},
+            {text: "Podgorica", correct: true},
+            {text: "Zagreb", correct: false},
+            {text: "Edinburgh", correct: false}
+        ]
+    },
+    {
+        question: "What is capital of Sweden?",
+        answers: [
+            {text: "Copenhagen", correct: false},
+            {text: "Oslo", correct: false},
+            {text: "Dublin", correct: false},
+            {text: "Stockholm", correct: true}
+        ]
+    },
+    {
+        question: "What is capital of Latvia?",
+        answers: [
+            {text: "Riga", correct: true},
+            {text: "Rome", correct: false},
+            {text: "Reykjavik", correct: false},
+            {text: "Ljubljana", correct: false}
+        ]
+    },
     
 ]
 let shuffledQuestions, currentQuestionIndex
@@ -177,7 +177,7 @@ function stopTimer() {
 };
 
 function countdown (){
-    var tenMinutes = 60 * 0.1,
+    var tenMinutes = 60 * 1,
         display = document.querySelector('#time');
     startTimer(tenMinutes, display);
 };
