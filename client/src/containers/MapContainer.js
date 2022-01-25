@@ -14,6 +14,7 @@ import { Search } from 'react-bootstrap-icons';
 import './MapContainer.css'
 import { countryList } from './../data/EuropeData'
 import { getCountry } from "../services/EuroService";
+import CountryQuiz from "../components/CountryQuiz";
 
 const MapContainer = () => {
 
@@ -78,6 +79,7 @@ const MapContainer = () => {
 
             </div>
 
+            <CountryQuiz countryList={countryList} getCountry={getCountry} setCountryInfo={setCountryInfo}/>
 
         </>
     )

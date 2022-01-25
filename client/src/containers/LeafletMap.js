@@ -77,7 +77,7 @@ const LeafletMap = ({setSelectedCountry, handleShow, getCountry, countryInfo, se
                 data={europe_json}
                 onEachFeature={onEachCountry}
                 />
-                {<Marker key={0} position={displayMarker()} icon={icon}/>}
+                <Marker key={0} position={displayMarker()} icon={icon}/>
             </MapContainer>
             </div>
     )
