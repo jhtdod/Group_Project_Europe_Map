@@ -57,14 +57,14 @@ const CountryQuiz = ({countryList, getCountry, setCountryInfo}) => {
     }
 
         return (
-            <>
+            <div className="country-quiz">
             <h5>Can you name the countries?</h5>
             <form onSubmit={onSubmit}>
                 <input type="text" id="answer" onChange={handleChange}/>
                 <input type="submit"/>
             </form>
             <p>{message} {score}/46</p>
-            </>
+            </div>
         )
     
 }

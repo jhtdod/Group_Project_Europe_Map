@@ -12,7 +12,9 @@
 h1 {
   /* text-align: center; */
   z-index: 10;
-  padding-left: 8px;
+  background-color: transparent;
+  position: fixed;
+  right: 3%;
 }
 
 .black-header {
