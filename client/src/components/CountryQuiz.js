@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import RandomQuiz from "./RandomQuiz";
 
 const CountryQuiz = ({countryList, getCountry, setCountryInfo}) => {
 
@@ -64,6 +65,7 @@ const CountryQuiz = ({countryList, getCountry, setCountryInfo}) => {
                 <input type="submit"/>
             </form>
             <p>{message} {score}/46</p>
+            <RandomQuiz countryList={countryList} getCountry={getCountry} setCountryInfo={setCountryInfo}/>
             </div>
         )
     
