@@ -4,7 +4,6 @@ const questionElement = document.getElementById('question')
 const questionContainerElement = document.getElementById('question-container')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const scoreElement = document.getElementById('score-container')
-const buttonElement = document.getElementsByClassName('btn')
 
 
 const questions = [
@@ -106,7 +105,9 @@ function showQuestions(question) {
 function selectAnswer(pick) {
     const selectedButton = pick.target
     const correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
+    if (!answerSelected) {
+        setStatusClass(document.body, correct)
+    }
     if (correct && !answerSelected){
         updateScore(1);
     }
