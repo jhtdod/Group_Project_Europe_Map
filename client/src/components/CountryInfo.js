@@ -3,8 +3,6 @@ import './CountrySearch.css'
 
 const CountryInfo = ({countryInfo}) => {
 
-    console.log(countryInfo);
-
     if (!countryInfo){
         return null
     }
