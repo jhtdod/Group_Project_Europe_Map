@@ -82,3 +82,8 @@ body.wrong {
 .hide{
     display: none;
 }
+
+#header {
+    display: flex;
+    justify-content: space-between;
+}
