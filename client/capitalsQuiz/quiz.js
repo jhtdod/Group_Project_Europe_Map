@@ -56,9 +56,9 @@ const questions = [
 let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
-startButton.addEventListener('click', countdown)
 
 function startGame () {
+    countdown()
     startButton.classList.add('hide')
     //randomise order that Qs come up - assign float between 1-0 then take away 0.5 then 1 is gunna be less than 0, 1 is gunna be positive 50% of the time. currentquestionindex starts at 0 ie the very first Q
     shuffledQuestions = questions.sort( () => Math.random() - .5)
@@ -116,7 +116,7 @@ function selectAnswer (pick) {
     stopTimer()
     startButton.innerText = 'Restart'
     startButton.classList.remove('hide')
-    }
+}
 }
 
 function setStatusClass(element, correct) {
@@ -134,14 +134,16 @@ function clearStatusClass(element) {
     element.classList.remove('wrong')
 }
 
-let start = Date.now(),
+function startTimer(duration, display) {
+    
+    let start = Date.now(),
     diff,
     minutes,
     seconds;
 
-    function startTimer(duration, display) {function timer() {
+    function timer() {
         // get the number of seconds that have elapsed since 
-        // startTimer() was called
+        // startTimer() was called on start click
         diff = duration - (((Date.now() - start) / 1000) | 0);
     
         minutes = (diff / 60) | 0;
@@ -158,12 +160,14 @@ let start = Date.now(),
             start = Date.now() + 1000;
         }
     };
+    timer()
     timing = setInterval(timer, 1000);
-    timer();
-    }
+
+}
 
 function stopTimer() {
     clearInterval(timing)
+    
 }
 
 function countdown (){
