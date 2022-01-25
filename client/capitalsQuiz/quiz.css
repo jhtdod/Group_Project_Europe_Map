@@ -91,3 +91,8 @@ body.wrong {
     display: flex;
     justify-content: space-between;
 }
+
+.alert {
+    display: flex;
+    justify-content: center
+}

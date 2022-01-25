@@ -59,8 +59,9 @@ startButton.addEventListener('click', startGame)
 
 function startGame () {
     countdown()
-    startButton.classList.add('hide')
+    questionElement.classList.remove('hide')
     answerButtonsElement.classList.remove('hide')
+    startButton.classList.add('hide')
     //randomise order that Qs come up - assign float between 1-0 then take away 0.5 then 1 is gunna be less than 0, 1 is gunna be positive 50% of the time. currentquestionindex starts at 0 ie the very first Q
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
@@ -121,12 +122,13 @@ function selectAnswer(pick) {
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove('hide')
     }
-  
+
     else 
     {
     stopTimer()
     startButton.innerText = 'Restart'
     startButton.classList.remove('hide')
+
     }
 }
 
@@ -170,27 +172,32 @@ function startTimer(duration, display) {
             start = Date.now() + 1000;
         }
     if (diff === 0){
-            stopTimer()
-            startButton.innerText = 'Restart'
-            startButton.classList.remove('hide')
-            nextButton.classList.add('hide')
-            answerButtonsElement.classList.add('hide')
+        restartGame()
         }
     };
     timer()
     timing = setInterval(timer, 1000);
 };
 
+function restartGame (){
+    nextButton.classList.add('hide')
+    stopTimer()
+    answerButtonsElement.classList.add('hide')
+    questionElement.classList.add('hide')
+    startButton.innerText = 'Restart'
+    startButton.classList.remove('hide')
+}
+
 function stopTimer() {
     clearInterval(timing)
 };
 
 function countdown (){
-    var tenMinutes = 60 * 1,
+    var tenMinutes = 60 * 0.1,
         display = document.querySelector('#time');
     startTimer(tenMinutes, display);
 };
-  
+
 function updateScore(answer) {
     if (answer === 1) {
         quizScore++;
