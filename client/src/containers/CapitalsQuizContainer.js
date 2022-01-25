@@ -56,7 +56,7 @@ const CapitalsQuizContainer = () => {
     const [show, setShow] = useState(false)
     const [start, setStart] = useState(true)
     const [startButton, setStartButton] = useState("Start")
-    const [newQuestion, setNewQuestion] = useState([])
+    const [newQuestion, setNewQuestion] = useState({})
     const [questionCount, setQuestionCount] = useState(0)
 
     const handleShow = () => setShow(true)
@@ -71,7 +71,8 @@ const CapitalsQuizContainer = () => {
     const handleNext = () => {
         if (questionCount < questions.length - 1) {
             setNewQuestion(questions[questionCount])
-            setQuestionCount(questionCount++);
+            const newCount = questionCount++;
+            setQuestionCount(newCount);
         } else {
             setStartButton("Restart")
             setStart(true)
@@ -88,10 +89,12 @@ const CapitalsQuizContainer = () => {
                     <Modal.Title>Capitals Quiz</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <CapitalsQuiz newQuestion={newQuestion}/>
                     <div className="controls">
-                    {start ? <button id="start-btn" onClick={handleStart}>{startButton}</button> : 
-                    <button id="next-btn" onClick={handleNext}>Next</button>}
+                        {start ? <button id="start-btn" onClick={handleStart}>{startButton}</button> : 
+                        <div className="quiz"> 
+                            <CapitalsQuiz newQuestion={newQuestion}/>
+                            <button id="next-btn" onClick={handleNext}>Next</button> 
+                        </div> }
                     </div>
                 </Modal.Body>
             </Modal>

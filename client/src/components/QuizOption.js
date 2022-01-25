@@ -1,9 +1,11 @@
 import React from "react";
 
-const QuizOption = () => {
+const QuizOption = ({answer}) => {
     return(
         <>
-            <li>Quiz Option</li>
+            <button>
+                {answer.text}
+            </button>
         </>
     )
 }
