@@ -40,7 +40,28 @@ const LeafletMap = ({setSelectedCountry, handleShow, getCountry, countryInfo, se
 
     const displayMarker = () => {
         if (countryInfo) {
-            return countryInfo[1].latlng
+            switch (countryInfo[0].country) {
+                case "Russia":
+                    return [55.8, 37.6];
+                case "Lithuania":
+                    return [55.3, 24];
+                case "Italy":
+                    return [41.6, 14.7];
+                case "Iceland":
+                    return [64, -18];
+                case "Norway":
+                    return [60, 8.5];
+                case "Sweden":
+                    return [59, 14];
+                case "Finland":
+                    return [61.5, 26];
+                case "Croatia":
+                    return [44.8, 15.4];
+                case "Kosovo":
+                    return [42.5, 20.8]
+                default:
+                    return countryInfo[1].latlng;
+            }
         }
         return [0,0]
     }
