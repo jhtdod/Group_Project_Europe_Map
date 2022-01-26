@@ -64,10 +64,10 @@ const MapContainer = () => {
                 </div>
 
                 <div className="search-container">
-                    <Accordion style={{ border: "none", width:"25rem"}}>
+                    <Accordion style={{width:"25rem"}}>
                         <Accordion.Item eventKey="0">
-                            <Accordion.Header className="search-bar" style={{ border: "none" }}><Search /><CountrySearch setFilter={setFilter}/></Accordion.Header>
-                            <Accordion.Body style = {{ height:"13rem" }}>
+                            <Accordion.Header className="search-bar"><Search /><CountrySearch setFilter={setFilter}/></Accordion.Header>
+                            <Accordion.Body className="searchBody" style = {{ height:"13rem" }}>
                                 <div className="SearchList">
                                     <CountryList countryList={countryList} onCountryClick={onCountryClick} checkFilter={checkFilter} />
                                 </div>
