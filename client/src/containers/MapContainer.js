@@ -72,7 +72,7 @@ const MapContainer = () => {
                     <Accordion style={{ width: "25rem" }}>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header className="search-bar"><Search /><CountrySearch setFilter={setFilter} /></Accordion.Header>
-                            <Accordion.Button style={{ backgroundImage: "none" }}>
+                            <Accordion.Button className="collapseButton">
                                 <Accordion.Body className="searchBody" style={{ height: "13rem" }} eventKey="1">
                                     <div className="SearchList">
                                         <CountryList countryList={countryList} onCountryClick={onCountryClick} checkFilter={checkFilter} />
