@@ -133,5 +133,13 @@ a:visited{
     z-index: 200;
 }
 
+.score-page > h5 {
+    color: black;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: none;
+}
+
 
 @import '~bootstrap/dist/css/bootstrap.css';
