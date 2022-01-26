@@ -93,9 +93,9 @@
     height: 95%;
 }
 
-.country-quiz {
+/* .country-quiz {
     position: fixed;
     bottom: 1px;
-}
+} */
 
 @import '~bootstrap/dist/css/bootstrap.css';
