@@ -165,6 +165,10 @@ path {
     color: black;
 }
 
+.question-answered >h5 {
+    color: black;
+}
+
 .accordion-button:not(.collapsed)::after {
     background-image: none;
 }
