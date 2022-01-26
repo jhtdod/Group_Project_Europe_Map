@@ -78,9 +78,7 @@ const CapitalsQuizContainer = ({ countryList, getCountry }) => {
 
     return (
         <>
-            <Button onClick={handleShow}>
-                <h3>Capitals Quiz</h3>
-            </Button>
+            <button className="nameQuiz" onClick={handleShow}><div className="linkText">Test your knowledge of European Capitals</div></button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Capitals Quiz</Modal.Title>

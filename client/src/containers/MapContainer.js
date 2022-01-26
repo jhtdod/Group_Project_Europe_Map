@@ -42,8 +42,6 @@ const MapContainer = () => {
 
     return (
         <>
-
-            <CapitalsQuizContainer countryList={countryList} getCountry={getCountry}/>
             <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow} getCountry={getCountry} setCountryInfo={setCountryInfo} countryInfo={countryInfo} quizInfo={quizInfo}/>
 
 
@@ -60,7 +58,8 @@ const MapContainer = () => {
                             <Card.Body className="appBody">
                                 <h4 className="appText">Select a country on the map, type one in below or select a quiz!</h4>
                                 <button className="nameQuiz"><div className="linkText">Name every country in Europe</div></button>
-                                <button className="nameQuiz"><div className="linkText">Test your knowledge of European Capitals</div></button>
+                                <CapitalsQuizContainer countryList={countryList} getCountry={getCountry}/>
+                                
                                 <button className="nameQuiz"><div className="linkText">How is your flag knowledge?</div></button>
                             </Card.Body>
                         </Card> 
