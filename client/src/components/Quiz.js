@@ -10,9 +10,9 @@ const Quiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, score, s
         setHasAnswered(true);
         if (event.target.textContent === correctAnswer) {
             setScore(score => score + 1);
-            setCorrectText("Correct!")
+            setCorrectText("Well done!!!")
         } else {
-            setCorrectText("Wrong.")
+            setCorrectText("Unlucky!")
         }
     }
 

@@ -31,7 +31,7 @@ const FlagsQuizContainer = ({ countryList, getCountry }) => {
                     .then(value => data.push(value))))
                 .finally(() => {
                     let answer = data[Math.floor(Math.random() * 4)]
-                    let question = `This is the flag of where?`
+                    let question = `Who does this flag belong to?`
                     let answers = [
                         { text: (data[0][0].country), correct: (data[0] === answer) },
                         { text: (data[1][0].country), correct: (data[1] === answer) },

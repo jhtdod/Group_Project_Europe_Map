@@ -10,11 +10,13 @@
 
 .questionFlag {
     border-radius: 5px;
-    max-height: 250px;
+    width: 300px;
+    height: 250px;
     margin: 10px;
 }
 
 .modal-body{
+    padding: 5;
     display: flex;
     justify-content: center;
 }
@@ -29,11 +31,14 @@
 
 ul{
     list-style: none;
-    justify-items: center;
+    margin: 0;
+    padding: 0
 }
 
 button{
     margin: 10px;
+    width: 300px;
+    height: 65px;
     background-color: #10242d;
     border: 0.5px solid #2099d1;
     border-radius: 5px;
@@ -47,20 +52,20 @@ button{
     color: white;
     animation: glow 5s ease-in-out infinite alternate;
 }
+
 @keyframes glow {
     from {
-        text-shadow: 0 0 20px #2d9da9;
+        text-shadow: 0 0 20px #c1d1d3;
     }
     to {
-        text-shadow: 0 0 30px #34b3c1, 0 0 10px #4dbbc7;
+        text-shadow: 0 0 30px #bad0d3, 0 0 10px #e2f1f3;
 }
 }
 
 #next-btn {
-    width: 250px;
-    margin: 10px;
-    padding: 10px;
-    background-color: #10242d;
+    justify-content: center;
+    width: 300px;
+    background-color: #08a7f1;
     border: 0.5px solid #2099d1;
     border-radius: 10px;
     padding: 5px 10px;
