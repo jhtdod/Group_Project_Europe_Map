@@ -13,6 +13,7 @@ import { countryList } from './../data/EuropeData'
 import { getCountry } from "../services/EuroService";
 import CountryQuiz from "../components/CountryQuiz";
 import CapitalsQuizContainer from "./CapitalsQuizContainer";
+import FlagsQuizContainer from "./FlagsQuizContainer";
 
 const MapContainer = () => {
 
@@ -57,10 +58,9 @@ const MapContainer = () => {
                         <Card style={{height:"33.5rem", width:"25rem"}}>
                             <Card.Body className="appBody">
                                 <h4 className="appText">Select a country on the map, type one in below or select a quiz!</h4>
-                                <button className="nameQuiz"><div className="linkText">Name every country in Europe</div></button>
+                                <button className="nameQuiz"><div className="linkText">Can you name every country in Europe?</div></button>
                                 <CapitalsQuizContainer countryList={countryList} getCountry={getCountry}/>
-                                
-                                <button className="nameQuiz"><div className="linkText">How is your flag knowledge?</div></button>
+                                <FlagsQuizContainer countryList={countryList} getCountry={getCountry}/>
                             </Card.Body>
                         </Card> 
                     }

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./CountryCard.css"
-import RandomQuiz from "./RandomQuiz";
 
 const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo}) => {
 
@@ -77,7 +76,6 @@ const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo}) => {
                 <input type="submit"/>
             </form>
             <p>{message} {score}/46</p>
-            <RandomQuiz countryList={countryList} getCountry={getCountry}/>
             </div>
         )
     
