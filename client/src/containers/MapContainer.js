@@ -45,7 +45,7 @@ const MapContainer = () => {
             <div className="right-side">
                 <div className="start-card">
                 {show ? 
-                        <Card  style={{height:"30rem", width:"23rem"}}>
+                        <Card  style={{height:"33.5rem", width:"23rem"}}>
 
                                 <CountryCard selectedCountry={selectedCountry} countryInfo={countryInfo} handleClose={handleClose} />
 
