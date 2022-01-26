@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, { useState } from "react";
 import QuizOption from "./QuizOption";
 
-const CapitalsQuiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, score, setScore}) => {
+const Quiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, score, setScore}) => {
 
     const [correctText, setCorrectText] = useState("")
 
@@ -24,6 +24,7 @@ const CapitalsQuiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, 
         <>
             <div id="question-container">
                 <div id="header">
+                    <div id="question-flag"><img src={newQuestion.flag}></img></div>
                     <div id="question">{newQuestion.question}</div>
                     <div id="score-container">Score: {score}</div>
                 </div>
@@ -41,4 +42,4 @@ const CapitalsQuiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, 
     )
 }
 
-export default CapitalsQuiz;
+export default Quiz;

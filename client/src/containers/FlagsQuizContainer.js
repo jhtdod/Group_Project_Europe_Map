@@ -3,7 +3,7 @@ import Quiz from "../components/Quiz";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-const CapitalsQuizContainer = ({ countryList, getCountry }) => {
+const FlagsQuizContainer = ({ countryList, getCountry }) => {
 
     const [show, setShow] = useState(false)
     const [start, setStart] = useState(true)
@@ -31,15 +31,15 @@ const CapitalsQuizContainer = ({ countryList, getCountry }) => {
                     .then(value => data.push(value))))
                 .finally(() => {
                     let answer = data[Math.floor(Math.random() * 4)]
-                    let question = `What is the capital city of ${answer[0].country}?`
+                    let question = `This is the flag of where?`
                     let answers = [
-                        { text: (data[0][1].capital[0]), correct: (data[0] === answer) },
-                        { text: (data[1][1].capital[0]), correct: (data[1] === answer) },
-                        { text: (data[2][1].capital[0]), correct: (data[2] === answer) },
-                        { text: (data[3][1].capital[0]), correct: (data[3] === answer) }]
+                        { text: (data[0][0].country), correct: (data[0] === answer) },
+                        { text: (data[1][0].country), correct: (data[1] === answer) },
+                        { text: (data[2][0].country), correct: (data[2] === answer) },
+                        { text: (data[3][0].country), correct: (data[3] === answer) }]
 
-                    setNewQuestion({ question: question, answers: answers })
-                    setCorrectAnswer(answer[1].capital[0])
+                    setNewQuestion({ question: question, answers: answers, flag: answer[1].flags.png })
+                    setCorrectAnswer(answer[0].country)
                 })
         }
 
@@ -78,15 +78,15 @@ const CapitalsQuizContainer = ({ countryList, getCountry }) => {
 
     return (
         <>
-            <button className="nameQuiz" onClick={handleShow}><div className="linkText">Test your knowledge of European Capitals</div></button>
+            <button className="nameQuiz" onClick={handleShow}><div className="linkText">How is your flag knowledge?</div></button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Capitals Quiz</Modal.Title>
+                    <Modal.Title>Flags Quiz</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className="controls">
                         {start ?
-                            <div className="score-page">
+                            <div>
                                 {endPage ? <h5>Your final score is {score}/10 </h5> : null}
                                 <button id="start-btn" onClick={handleStart}>{startButton}</button>
                             </div>
@@ -109,4 +109,4 @@ const CapitalsQuizContainer = ({ countryList, getCountry }) => {
     )
 }
 
-export default CapitalsQuizContainer;
+export default FlagsQuizContainer;
