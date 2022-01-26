@@ -55,10 +55,10 @@ button{
 
 @keyframes glow {
     from {
-        text-shadow: 0 0 20px #c1d1d3;
+        text-shadow: 0 0 10px #c1d1d3;
     }
     to {
-        text-shadow: 0 0 30px #bad0d3, 0 0 10px #e2f1f3;
+        text-shadow: 0 0 100px #bad0d3, 0 0 10px #e2f1f3;
 }
 }
 

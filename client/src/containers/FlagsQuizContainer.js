@@ -92,6 +92,7 @@ const FlagsQuizContainer = ({ countryList, getCountry }) => {
                                             </div>
                                             :
                                             <div className="quiz">
+                                            <img className="questionFlag" src={newQuestion.flag}></img>
                                                 <Quiz
                                                     newQuestion={newQuestion}
                                                     correctAnswer={correctAnswer}
