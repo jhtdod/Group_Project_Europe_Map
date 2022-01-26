@@ -133,5 +133,9 @@ a:visited{
     z-index: 200;
 }
 
+.score-page > h5 {
+    color: black;
+}
+
 
 @import '~bootstrap/dist/css/bootstrap.css';
