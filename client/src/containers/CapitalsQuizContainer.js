@@ -55,11 +55,13 @@ const CapitalsQuizContainer = () => {
 
     const [show, setShow] = useState(false)
     const [start, setStart] = useState(true)
+    const [endPage, setEndPage] = useState(false)
     const [startButton, setStartButton] = useState("Start")
     const [newQuestion, setNewQuestion] = useState([])
     const [questionCount, setQuestionCount] = useState(0)
     const [correctAnswer, setCorrectAnswer] = useState("")
     const [hasAnswered, setHasAnswered] = useState(false)
+    const [score, setScore] = useState(0)
 
     const handleShow = () => setShow(true)
     const handleClose = () => setShow(false)
@@ -71,6 +73,8 @@ const CapitalsQuizContainer = () => {
     }
 
     const handleStart = () => {
+        setScore(0)
+        setEndPage(false)
         setNewQuestion([questions[questionCount]])
         setQuestionCount(1)
         setStart(false)
@@ -87,6 +91,7 @@ const CapitalsQuizContainer = () => {
         } else {
             setStartButton("Restart")
             setStart(true)
+            setEndPage(true)
             setQuestionCount(0)
         }
     }
@@ -102,12 +107,21 @@ const CapitalsQuizContainer = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <div className="controls">
-                        {start ? <button id="start-btn" onClick={handleStart}>{startButton}</button> :
+                        {start ? 
+                        <div>
+                            {endPage ? <h5>Your final score is {score}/{questions.length} </h5> : null}
+                            <button id="start-btn" onClick={handleStart}>{startButton}</button>
+                        </div>
+                         :
                             <div className="quiz">
                                 <CapitalsQuiz 
                                 newQuestion={newQuestion} 
                                 correctAnswer={correctAnswer} 
-                                setHasAnswered={setHasAnswered} hasAnswered={hasAnswered}/>
+                                setHasAnswered={setHasAnswered} 
+                                hasAnswered={hasAnswered}
+                                score={score}
+                                setScore={setScore}
+                                />
                                 <button id="next-btn" onClick={handleNext}>Next</button>
                             </div>}
                     </div>

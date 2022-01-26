@@ -1,15 +1,12 @@
 import React, {useEffect, useState} from "react";
 import QuizOption from "./QuizOption";
 
-const CapitalsQuiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered}) => {
+const CapitalsQuiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, score, setScore}) => {
 
-    const [score, setScore] = useState(0)
     const [correctText, setCorrectText] = useState("")
 
     const handleClick = (event) => {
         setHasAnswered(true);
-        console.log(event.target.textContent)
-        console.log(correctAnswer)
         if (event.target.textContent === correctAnswer) {
             setScore(score => score + 1);
             setCorrectText("Correct!")
