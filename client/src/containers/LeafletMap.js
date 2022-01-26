@@ -56,7 +56,7 @@ const LeafletMap = ({setSelectedCountry, handleShow, getCountry, countryInfo, se
                 case "Finland":
                     return [61.5, 26];
                 case "Croatia":
-                    return [44.8, 15.4];
+                    return [44.4, 15.4];
                 case "Kosovo":
                     return [42.5, 20.8]
                 default:

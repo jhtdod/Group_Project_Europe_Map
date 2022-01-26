@@ -1,13 +1,23 @@
 .cardImage{
     border-radius: 5px;
     height:250px;
-    margin: 5% 0
+    margin: 0 0 3% 0
     /* border-style: solid;
     border-color: 0.25px black */
 }
 
 .pulledInfo{
-    font: bold 20px/150% 'Architects Daughter', cursive;
+    list-style: none;
+    margin: 0;
+    padding: 1%;
+}
+
+.cardInfoLabel{
+    font: bold 22px/150% 'Architects Daughter', cursive;
+}
+
+.cardInfoContent{
+    font: 22px/150% 'Architects Daughter', cursive;
 }
 
 h4 {
