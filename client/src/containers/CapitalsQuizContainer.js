@@ -86,7 +86,7 @@ const CapitalsQuizContainer = ({ countryList, getCountry }) => {
                 <Modal.Body>
                     <div className="controls">
                         {start ?
-                            <div>
+                            <div className="score-page">
                                 {endPage ? <h5>Your final score is {score}/10 </h5> : null}
                                 <button id="start-btn" onClick={handleStart}>{startButton}</button>
                             </div>

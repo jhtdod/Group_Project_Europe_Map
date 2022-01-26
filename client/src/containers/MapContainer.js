@@ -6,7 +6,7 @@ import CountrySearch from '../components/CountrySearch';
 import "../components/CountrySearch.css"
 import LeafletMap from "./LeafletMap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Accordion, Card, Container, CloseButton, Modal} from 'react-bootstrap';
+import { Accordion, Card, Container, CloseButton, Modal } from 'react-bootstrap';
 import { Search } from 'react-bootstrap-icons';
 import './MapContainer.css'
 import { countryList } from './../data/EuropeData'
@@ -30,15 +30,15 @@ const MapContainer = () => {
 
     const onCountryClick = (country) => {
         getCountry(country)
-        .then(result => setCountryInfo(result));
+            .then(result => setCountryInfo(result));
         setSelectedCountry(country);
         handleShow();
-        
+
     }
 
     const handleShow = () => setShow(true);
     const handleClose = () => {
-        setShow(false); 
+        setShow(false);
         setCountryInfo(null);
     }
 
@@ -48,7 +48,7 @@ const MapContainer = () => {
 
     return (
         <>
-            <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow} getCountry={getCountry} setCountryInfo={setCountryInfo} countryInfo={countryInfo} quizInfo={quizInfo}/>
+            <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow} getCountry={getCountry} setCountryInfo={setCountryInfo} countryInfo={countryInfo} quizInfo={quizInfo} />
 
 
             <div className="right-side">
@@ -65,35 +65,41 @@ const MapContainer = () => {
                 {show ? 
                         <Card style={{height:"33.5rem", width:"25rem"}}>
 
-                                <CountryCard selectedCountry={selectedCountry} countryInfo={countryInfo} handleClose={handleClose} />
+                            <CountryCard selectedCountry={selectedCountry} countryInfo={countryInfo} handleClose={handleClose} />
 
                         </Card> :
 
-                        <Card style={{height:"33.5rem", width:"25rem"}}>
+                        <Card style={{ height: "33.5rem", width: "25rem" }}>
                             <Card.Body className="appBody">
+
                                 <h4 className="appText">Select a country on the map to find out more information, or search below. Or try a quiz!</h4>
                                 <button className="nameQuiz" onClick={handleQuizClick}><div className="linkText">Can you name every country in Europe?</div></button>
+
                                 <CapitalsQuizContainer countryList={countryList} getCountry={getCountry}/>
                                 <FlagsQuizContainer countryList={countryList} getCountry={getCountry}/>
+
                             </Card.Body>
-                        </Card> 
+                        </Card>
                     }
                 </div>
 
                 <div className="search-container">
-                    <Accordion style={{ border: "none", width:"25rem"}}>
+                    <Accordion style={{ width: "25rem" }}>
                         <Accordion.Item eventKey="0">
-                            <Accordion.Header className="search-bar" style={{ border: "none" }}><Search /><CountrySearch setFilter={setFilter}/></Accordion.Header>
-                            <Accordion.Body style = {{ height:"13rem" }}>
-                                <div className="SearchList">
-                                    <CountryList countryList={countryList} onCountryClick={onCountryClick} checkFilter={checkFilter} />
-                                </div>
-                            </Accordion.Body>
+                            <Accordion.Header className="search-bar"><Search /><CountrySearch setFilter={setFilter} /></Accordion.Header>
+                            <Accordion.Button style={{ backgroundImage: "none" }}>
+                                <Accordion.Body className="searchBody" style={{ height: "13rem" }} eventKey="1">
+                                    <div className="SearchList">
+                                        <CountryList countryList={countryList} onCountryClick={onCountryClick} checkFilter={checkFilter} />
+                                    </div>
+                                </Accordion.Body>
+                            </Accordion.Button>
                         </Accordion.Item>
                     </Accordion>
                 </div>
 
             </div>
+
         </>
     )
 }
