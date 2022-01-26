@@ -156,6 +156,11 @@ path {
     z-index: 200;
 }
 
+.quiz-card {
+    position:absolute;
+    z-index: 1500
+}
+
 .score-page > h5 {
     color: black;
 }
@@ -163,6 +168,5 @@ path {
 .accordion-button:not(.collapsed)::after {
     background-image: none;
 }
-
 
 @import '~bootstrap/dist/css/bootstrap.css';

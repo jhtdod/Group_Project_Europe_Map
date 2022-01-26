@@ -20,6 +20,7 @@ const MapContainer = () => {
     const [selectedCountry, setSelectedCountry] = useState(null)
     const [filter, setFilter] = useState('')
     const [show, setShow] = useState(false)
+    const [showQuiz, setShowQuiz] = useState(false)
     const [countryInfo, setCountryInfo] = useState(null)
     const [quizInfo, setQuizInfo] = useState(null)
 
@@ -41,6 +42,10 @@ const MapContainer = () => {
         setCountryInfo(null);
     }
 
+    const handleQuizClick = () => {
+        setShowQuiz(true)
+    }
+
     return (
         <>
             <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow} getCountry={getCountry} setCountryInfo={setCountryInfo} countryInfo={countryInfo} quizInfo={quizInfo} />
@@ -48,8 +53,17 @@ const MapContainer = () => {
 
             <div className="right-side">
                 <div className="start-card">
-                    {show ?
-                        <Card style={{ height: "33.5rem", width: "25rem" }}>
+                {showQuiz ?
+                        <div className="quiz-card">
+                        <Card style={{height:"35rem", width:"25rem"}}>
+                            <CountryQuiz countryList={countryList} getCountry={getCountry} handleClose={handleClose} setQuizInfo={setQuizInfo}/>
+                        </Card>
+                        </div> :
+                        null }
+                
+
+                {show ? 
+                        <Card style={{height:"33.5rem", width:"25rem"}}>
 
                             <CountryCard selectedCountry={selectedCountry} countryInfo={countryInfo} handleClose={handleClose} />
 
@@ -57,9 +71,10 @@ const MapContainer = () => {
 
                         <Card style={{ height: "33.5rem", width: "25rem" }}>
                             <Card.Body className="appBody">
-                                <h4 className="appText">Select a country on the map, type one in below or select a quiz!</h4>
 
-                                <button className="nameQuiz"><div className="linkText">Can you name every country in Europe?</div></button>
+                                <h4 className="appText">Select a country on the map to find out more information, or search below. Or try a quiz!</h4>
+                                <button className="nameQuiz" onClick={handleQuizClick}><div className="linkText">Can you name every country in Europe?</div></button>
+
                                 <CapitalsQuizContainer countryList={countryList} getCountry={getCountry}/>
                                 <FlagsQuizContainer countryList={countryList} getCountry={getCountry}/>
 
@@ -84,8 +99,6 @@ const MapContainer = () => {
                 </div>
 
             </div>
-
-            <CountryQuiz countryList={countryList} getCountry={getCountry} handleClose={handleClose} setQuizInfo={setQuizInfo} />
 
         </>
     )
