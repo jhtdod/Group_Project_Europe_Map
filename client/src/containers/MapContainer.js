@@ -45,7 +45,7 @@ const MapContainer = () => {
             <div className="right-side">
                 <div className="start-card">
                 {show ? 
-                        <Card  style={{height:"33.5rem", width:"23rem"}}>
+                        <Card  style={{height:"33.5rem", width:"25rem"}}>
 
                                 <CountryCard selectedCountry={selectedCountry} countryInfo={countryInfo} handleClose={handleClose} />
 
@@ -63,7 +63,7 @@ const MapContainer = () => {
                 </div>
 
                 <div className="search-container">
-                    <Accordion style={{ border: "none" }}>
+                    <Accordion style={{ border: "none", width:"25rem"}}>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header className="search-bar" style={{ border: "none" }}><Search /><CountrySearch setFilter={setFilter}/></Accordion.Header>
                             <Accordion.Body style = {{ height:"13rem" }}>
