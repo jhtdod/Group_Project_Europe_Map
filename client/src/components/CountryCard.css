@@ -1,0 +1,9 @@
+.cardImage{
+    border-radius: 5px;
+    /* border-style: solid;
+    border-color: 0.25px black */
+}
+
+.pulledInfo{
+    font: bold 20px/130% 'Architects Daughter', cursive;
+}

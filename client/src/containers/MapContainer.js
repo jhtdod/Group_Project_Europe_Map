@@ -6,10 +6,7 @@ import CountrySearch from '../components/CountrySearch';
 import "../components/CountrySearch.css"
 import LeafletMap from "./LeafletMap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card';
-import Accordion from 'react-bootstrap/Accordion';
-import Modal from 'react-bootstrap/Modal';
-import CloseButton from 'react-bootstrap/CloseButton';
+import {Accordion, Card, Container, CloseButton, Modal} from 'react-bootstrap';
 import { Search } from 'react-bootstrap-icons';
 import './MapContainer.css'
 import { countryList } from './../data/EuropeData'
@@ -32,6 +29,7 @@ const MapContainer = () => {
         .then(result => setCountryInfo(result));
         setSelectedCountry(country);
         handleShow();
+        
     }
 
     const handleShow = () => setShow(true);
@@ -47,22 +45,24 @@ const MapContainer = () => {
             <div className="right-side">
                 <div className="dropdown-card">
                 {show ? 
-                    <Card  style={{height:"25rem", width:"23rem"}}>
-                        {/* <Card.Header>
-                            <Card.Title>
-                                <CloseButton onClick={handleClose}/>
-                            </Card.Title>
-                        </Card.Header> */}
-                        <Card.Body>
-                            <CountryCard selectedCountry={selectedCountry} countryInfo={countryInfo} handleClose={handleClose} />
-                        </Card.Body>
-                    </Card> :
-                        <Card style={{height:"25rem", width:"23rem"}}>
+                        <Card  style={{height:"30rem", width:"23rem"}}>
+                            <Card.Header>
+                                <Card.Title>
+                                    <CloseButton onClick={handleClose}/>
+                                </Card.Title>
+                            </Card.Header>
+
+                                <CountryCard selectedCountry={selectedCountry} countryInfo={countryInfo} handleClose={handleClose} />
+
+                        </Card>:
+
+                        <Card style={{height:"30rem", width:"25rem"}}>
                             <Card.Body >
                                 <h4>Select a country on the map or search in the list below</h4>
                             </Card.Body>
-                        </Card> }
-            </div>
+                        </Card> 
+                    }
+                </div>
 
                 <div className="search-container">
                     <Accordion style={{ border: "none" }}>
