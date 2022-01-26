@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CountryCard.css"
 
-const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo}) => {
+const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo, setShowQuiz}) => {
 
     const [quizList, setQuizList] = useState(countryList.slice().sort(() => Math.random() - 0.5));
     const [formData, setFormData] = useState({});
@@ -29,6 +29,7 @@ const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo}) => {
         setQuizInfo(null)
         handleClose()
         setQuizList(countryList.slice().sort(() => Math.random() - 0.5))
+        setShowQuiz(false)
     }
 
     const checkAnswer = (answer, event) => {
@@ -70,7 +71,7 @@ const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo}) => {
             <div className="country-quiz">
             <h5>Can you name the countries?</h5>
             <p onClick={startQuiz}>Click me to start</p>
-            <p onClick={resetQuiz}>--Reset--</p>
+            <p onClick={resetQuiz}>--Close--</p>
             <form onSubmit={onSubmit}>
                 <input type="text" id="answer" onChange={handleChange}/>
                 <input type="submit"/>
