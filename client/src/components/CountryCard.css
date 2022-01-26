@@ -21,7 +21,9 @@
 }
 
 h4 {
-    font: 25px/125% 'Permanent Marker', cursive;
+    font: 25px/100% 'Permanent Marker', cursive;
+    margin: 0;
+    padding: 0;
 }
 
 h5 {
