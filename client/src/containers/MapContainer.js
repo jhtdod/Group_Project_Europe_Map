@@ -51,12 +51,12 @@ const MapContainer = () => {
 
                         </Card>:
 
-                        <Card style={{height:"30rem", width:"25rem"}}>
+                        <Card style={{height:"33.5rem", width:"25rem"}}>
                             <Card.Body className="appBody">
                                 <h4 className="appText">Select a country on the map, type one in below or select a quiz!</h4>
-                                <button className="nameQuiz"><a href=""><div className="linktext">Name every country in Europe</div></a></button>
-                                <button className="nameQuiz"><a href=""><div className="linktext">Test your knowledge of European Capitals</div></a></button>
-                                <button className="nameQuiz"><a href=""><div className="linktext">How is your flag knowledge?</div></a></button>
+                                <button className="nameQuiz"><div className="linkText">Name every country in Europe</div></button>
+                                <button className="nameQuiz"><div className="linkText">Test your knowledge of European Capitals</div></button>
+                                <button className="nameQuiz"><div className="linkText">How is your flag knowledge?</div></button>
                             </Card.Body>
                         </Card> 
                     }
