@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CapitalsQuiz from "../components/CapitalsQuiz";
+import Quiz from "../components/Quiz";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
@@ -92,7 +92,7 @@ const CapitalsQuizContainer = ({ countryList, getCountry }) => {
                             </div>
                             :
                             <div className="quiz">
-                                <CapitalsQuiz
+                                <Quiz
                                     newQuestion={newQuestion}
                                     correctAnswer={correctAnswer}
                                     setHasAnswered={setHasAnswered}

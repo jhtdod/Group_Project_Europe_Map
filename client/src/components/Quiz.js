@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, { useState } from "react";
 import QuizOption from "./QuizOption";
 
-const CapitalsQuiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, score, setScore}) => {
+const Quiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, score, setScore}) => {
 
     const [correctText, setCorrectText] = useState("")
 
@@ -42,4 +42,4 @@ const CapitalsQuiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, 
     )
 }
 
-export default CapitalsQuiz;
+export default Quiz;
