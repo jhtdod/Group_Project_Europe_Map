@@ -46,11 +46,6 @@ const MapContainer = () => {
                 <div className="dropdown-card">
                 {show ? 
                         <Card  style={{height:"30rem", width:"23rem"}}>
-                            <Card.Header>
-                                <Card.Title>
-                                    <CloseButton onClick={handleClose}/>
-                                </Card.Title>
-                            </Card.Header>
 
                                 <CountryCard selectedCountry={selectedCountry} countryInfo={countryInfo} handleClose={handleClose} />
 

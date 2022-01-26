@@ -15,7 +15,7 @@ const CountryInfo = ({countryInfo}) => {
         <div className="pulledInfo">
         <p>Capital: {countryInfo[1].capital}<br/>
         Population: {countryInfo[1].population}<br/>
-        Hello: {countryInfo[0].greeting}<br/>
+        Greeting: {countryInfo[0].greeting}<br/>
         National Animal: {countryInfo[0].animal}<br/>
         National Dish: {countryInfo[0].dish}</p>
         </div>
