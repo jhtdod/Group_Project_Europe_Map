@@ -15,7 +15,7 @@ const CapitalsQuiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, 
         }
     }
 
-    const optionList = newQuestion[0].answers.map((answer, index) => {
+    const optionList = newQuestion.answers.map((answer, index) => {
         const answerName = answer.text
         return <QuizOption answerName={answerName} key={index} handleClick={handleClick}/>
     })
@@ -24,14 +24,14 @@ const CapitalsQuiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, 
         <>
             <div id="question-container">
                 <div id="header">
-                    <div id="question">{newQuestion[0].question}</div>
+                    <div id="question">{newQuestion.question}</div>
                     <div id="score-container">Score: {score}</div>
                 </div>
                 <div id="answer-options">
                 {hasAnswered ? 
                     <div className="question-answered">
                         <h5>{correctText}</h5>
-                        The answer was {correctAnswer}
+                        <p>The answer was {correctAnswer}</p>
                     </div> :
                     <ul>{optionList}</ul>
                     }

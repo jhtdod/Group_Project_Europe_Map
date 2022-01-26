@@ -12,6 +12,7 @@ import './MapContainer.css'
 import { countryList } from './../data/EuropeData'
 import { getCountry } from "../services/EuroService";
 import CountryQuiz from "../components/CountryQuiz";
+import CapitalsQuizContainer from "./CapitalsQuizContainer";
 
 const MapContainer = () => {
 
@@ -40,6 +41,7 @@ const MapContainer = () => {
 
     return (
         <>
+            <CapitalsQuizContainer countryList={countryList} getCountry={getCountry}/>
             <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow} getCountry={getCountry} setCountryInfo={setCountryInfo} countryInfo={countryInfo}/>
 
             <div className="right-side">
