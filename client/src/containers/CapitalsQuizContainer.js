@@ -59,17 +59,15 @@ const CapitalsQuizContainer = () => {
     const [newQuestion, setNewQuestion] = useState([])
     const [questionCount, setQuestionCount] = useState(0)
     const [correctAnswer, setCorrectAnswer] = useState("")
+    const [hasAnswered, setHasAnswered] = useState(false)
 
     const handleShow = () => setShow(true)
     const handleClose = () => setShow(false)
 
     const findTrue = () => {
         const correctAnswerArray = questions[questionCount].answers.find(answer => answer.correct === true)
-        console.log(correctAnswerArray);
         const answerText = correctAnswerArray["text"]
-        console.log(answerText)
         setCorrectAnswer(answerText)
-        console.log(correctAnswer);
     }
 
     const handleStart = () => {
@@ -80,6 +78,7 @@ const CapitalsQuizContainer = () => {
     }
 
     const handleNext = () => {
+        setHasAnswered(false)
         if (questionCount <= questions.length - 1) {
             setNewQuestion([questions[questionCount]])
             let newCount = questionCount + 1;
@@ -105,7 +104,10 @@ const CapitalsQuizContainer = () => {
                     <div className="controls">
                         {start ? <button id="start-btn" onClick={handleStart}>{startButton}</button> :
                             <div className="quiz">
-                                <CapitalsQuiz newQuestion={newQuestion} correctAnswer={correctAnswer}/>
+                                <CapitalsQuiz 
+                                newQuestion={newQuestion} 
+                                correctAnswer={correctAnswer} 
+                                setHasAnswered={setHasAnswered} hasAnswered={hasAnswered}/>
                                 <button id="next-btn" onClick={handleNext}>Next</button>
                             </div>}
                     </div>

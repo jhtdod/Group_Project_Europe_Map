@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react";
 import QuizOption from "./QuizOption";
 
-const CapitalsQuiz = ({newQuestion, correctAnswer}) => {
+const CapitalsQuiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered}) => {
 
-    const [hasAnswered, setHasAnswered] = useState(false)
     const [score, setScore] = useState(0)
     const [correctText, setCorrectText] = useState("")
 
-    const handleClick = () => {
+    const handleClick = (event) => {
         setHasAnswered(true);
         console.log(event.target.textContent)
         console.log(correctAnswer)
