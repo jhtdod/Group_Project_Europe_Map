@@ -133,5 +133,9 @@ a:visited{
     z-index: 200;
 }
 
+.quiz-card {
+    position:absolute;
+    z-index: 1500
+}
 
 @import '~bootstrap/dist/css/bootstrap.css';
