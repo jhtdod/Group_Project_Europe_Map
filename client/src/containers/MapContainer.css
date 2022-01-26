@@ -1,3 +1,5 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+
 .right-side {
     position: fixed;
     z-index: 10;
@@ -126,7 +128,7 @@ button.accordion-body.collapseButton{
 }
 
 .search-container {
-    background-color: #10242d;
+    background-color: #e824fa;
     position: fixed;
     bottom: 10%;
     width: 370px;
@@ -175,4 +177,10 @@ button.accordion-body.collapseButton{
     background-image: none;
 }
 
-@import '~bootstrap/dist/css/bootstrap.css';
+.collapseButton > accordion-button > collapsed {
+    border: none;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+    box-shadow: none;
+}
