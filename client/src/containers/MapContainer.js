@@ -44,29 +44,27 @@ const MapContainer = () => {
             <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow} getCountry={getCountry} setCountryInfo={setCountryInfo} countryInfo={countryInfo} quizInfo={quizInfo}/>
 
             <div className="right-side">
-                <div className="dropdown-card">
+                <div className="start-card">
                 {show ? 
-                        <Card  style={{height:"30rem", width:"23rem"}}>
-                            <Card.Header>
-                                <Card.Title>
-                                    <CloseButton onClick={handleClose}/>
-                                </Card.Title>
-                            </Card.Header>
+                        <Card  style={{height:"33.5rem", width:"25rem"}}>
 
                                 <CountryCard selectedCountry={selectedCountry} countryInfo={countryInfo} handleClose={handleClose} />
 
                         </Card>:
 
-                        <Card style={{height:"30rem", width:"25rem"}}>
-                            <Card.Body >
-                                <h4>Select a country on the map or search in the list below</h4>
+                        <Card style={{height:"33.5rem", width:"25rem"}}>
+                            <Card.Body className="appBody">
+                                <h4 className="appText">Select a country on the map, type one in below or select a quiz!</h4>
+                                <button className="nameQuiz"><div className="linkText">Name every country in Europe</div></button>
+                                <button className="nameQuiz"><div className="linkText">Test your knowledge of European Capitals</div></button>
+                                <button className="nameQuiz"><div className="linkText">How is your flag knowledge?</div></button>
                             </Card.Body>
                         </Card> 
                     }
                 </div>
 
                 <div className="search-container">
-                    <Accordion style={{ border: "none" }}>
+                    <Accordion style={{ border: "none", width:"25rem"}}>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header className="search-bar" style={{ border: "none" }}><Search /><CountrySearch setFilter={setFilter}/></Accordion.Header>
                             <Accordion.Body style = {{ height:"13rem" }}>

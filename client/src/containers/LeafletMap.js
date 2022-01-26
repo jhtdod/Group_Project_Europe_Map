@@ -55,7 +55,7 @@ const LeafletMap = ({setSelectedCountry, handleShow, getCountry, countryInfo, se
             case "Finland":
                 return [61.5, 26];
             case "Croatia":
-                return [44.8, 15.4];
+                return [44.4, 15.4];
             case "Kosovo":
                 return [42.5, 20.8]
             default:
@@ -64,7 +64,6 @@ const LeafletMap = ({setSelectedCountry, handleShow, getCountry, countryInfo, se
     }
 
     const displayMarker = () => {
-        console.log('Quiz info: ', quizInfo);
         if (countryInfo && (!quizInfo)) {
             return handleSwitch(countryInfo)
         } else if (quizInfo) {
@@ -76,9 +75,9 @@ const LeafletMap = ({setSelectedCountry, handleShow, getCountry, countryInfo, se
     return (
             <div className="leaflet-container">
             <MapContainer center={[52, 28]} zoom={4} attributionControl={false} zoomControl={false} scrollWheelZoom={false} doubleClickZoom= {false} closePopupOnClick= {false} dragging= {false} zoomSnap= {false} zoomDelta= {false} trackResize= {false} touchZoom= {false} scrollWheelZoom= {false}>
-                {/* <TileLayer
+                <TileLayer
                 url={env.MAP_TILESET_URL}
-                /> */}
+                />
                 <GeoJSON
                 style={countryStyle} 
                 data={europe_json}
@@ -89,5 +88,6 @@ const LeafletMap = ({setSelectedCountry, handleShow, getCountry, countryInfo, se
             </div>
     )
 }
+
 
 export default LeafletMap;

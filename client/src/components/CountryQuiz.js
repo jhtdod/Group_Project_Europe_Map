@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./CountryCard.css"
 import RandomQuiz from "./RandomQuiz";
 
 const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo}) => {
