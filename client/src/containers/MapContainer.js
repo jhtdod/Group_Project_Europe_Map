@@ -80,7 +80,7 @@ const MapContainer = () => {
 
             </div>
 
-            <CountryQuiz countryList={countryList} getCountry={getCountry} setQuizInfo={setQuizInfo}/>
+            <CountryQuiz countryList={countryList} getCountry={getCountry} handleClose={handleClose} setQuizInfo={setQuizInfo}/>
 
         </>
     )

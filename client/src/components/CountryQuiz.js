@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import RandomQuiz from "./RandomQuiz";
 
-const CountryQuiz = ({countryList, getCountry, setCountryInfo, setQuizInfo}) => {
+const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo}) => {
 
     const [quizList, setQuizList] = useState(countryList.slice().sort(() => Math.random() - 0.5));
     const [formData, setFormData] = useState({});
@@ -27,6 +27,7 @@ const CountryQuiz = ({countryList, getCountry, setCountryInfo, setQuizInfo}) => 
         setScore(0)
         setMessage("")
         setQuizInfo(null)
+        handleClose()
         setQuizList(countryList.slice().sort(() => Math.random() - 0.5))
     }
 
