@@ -58,25 +58,25 @@ const CapitalsQuizContainer = () => {
     const [startButton, setStartButton] = useState("Start")
     const [newQuestion, setNewQuestion] = useState([])
     const [questionCount, setQuestionCount] = useState(0)
-    // const [correctAnswer, setCorrectAnswer] = useState("Correct")
+    const [correctAnswer, setCorrectAnswer] = useState("")
 
     const handleShow = () => setShow(true)
     const handleClose = () => setShow(false)
 
-    // const findTrue = () => {
-    //     const correctAnswerArray = questions[questionCount].answers.find(answer => answer.correct === true)
-    //     console.log(correctAnswerArray);
-    //     const answerText = correctAnswerArray["text"]
-    //     console.log(answerText)
-    //     // setCorrectAnswer(answerText)
-    //     // console.log(correctAnswer);
-    // }
+    const findTrue = () => {
+        const correctAnswerArray = questions[questionCount].answers.find(answer => answer.correct === true)
+        console.log(correctAnswerArray);
+        const answerText = correctAnswerArray["text"]
+        console.log(answerText)
+        setCorrectAnswer(answerText)
+        console.log(correctAnswer);
+    }
 
     const handleStart = () => {
         setNewQuestion([questions[questionCount]])
         setQuestionCount(1)
         setStart(false)
-        // findTrue()
+        findTrue()
     }
 
     const handleNext = () => {
@@ -84,7 +84,7 @@ const CapitalsQuizContainer = () => {
             setNewQuestion([questions[questionCount]])
             let newCount = questionCount + 1;
             setQuestionCount(newCount);
-            // findTrue()
+            findTrue()
         } else {
             setStartButton("Restart")
             setStart(true)
@@ -105,7 +105,7 @@ const CapitalsQuizContainer = () => {
                     <div className="controls">
                         {start ? <button id="start-btn" onClick={handleStart}>{startButton}</button> :
                             <div className="quiz">
-                                <CapitalsQuiz newQuestion={newQuestion} />
+                                <CapitalsQuiz newQuestion={newQuestion} correctAnswer={correctAnswer}/>
                                 <button id="next-btn" onClick={handleNext}>Next</button>
                             </div>}
                     </div>

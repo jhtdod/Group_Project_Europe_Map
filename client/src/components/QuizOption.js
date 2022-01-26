@@ -4,9 +4,11 @@ const QuizOption = ({answerName, handleClick}) => {
 
     return(
         <>
-            <button onClick={handleClick}>
-                {answerName}
-            </button>
+            <li>
+                <button onClick={handleClick}>
+                    {answerName}
+                </button>
+            </li>
         </>
     )
 }
