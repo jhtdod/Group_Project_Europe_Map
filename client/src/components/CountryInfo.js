@@ -5,11 +5,10 @@ import "./CountryCard.css"
 const CountryInfo = ({countryInfo}) => {
 
     if (!countryInfo){
-        return null
+        return null;
     }
 
     return (
-
         <>
         <img src={countryInfo[1].flags.png} width="100%" height="80%" alt={`Flag of ${countryInfo[0].country}`} className="cardImage"/>
         <ul className="pulledInfo">
@@ -35,9 +34,7 @@ const CountryInfo = ({countryInfo}) => {
             </li>
         </ul>
         </>
-        
     )
-
 }
 
 export default CountryInfo;
