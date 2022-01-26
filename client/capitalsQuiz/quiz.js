@@ -5,54 +5,7 @@ const questionContainerElement = document.getElementById('question-container')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const scoreElement = document.getElementById('score-container')
 
-const questions = [
-    {
-        question: "What is capital of Spain?",
-        answers: [
-            { text: "Madrid", correct: true },
-            { text: "Barcelona", correct: false },
-            { text: "London", correct: false },
-            { text: "Berlin", correct: false }
-        ]
-    },
-    {
-        question: "What is capital of Estonia?",
-        answers: [
-            { text: "Vaduz", correct: false },
-            { text: "Tirana", correct: false },
-            { text: "Tallinn", correct: true },
-            { text: "Valletta", correct: false }
-        ]
-    },
-    {
-        question: "What is capital of Montenegro?",
-        answers: [
-            { text: "Skopje", correct: false },
-            { text: "Podgorica", correct: true },
-            { text: "Zagreb", correct: false },
-            { text: "Edinburgh", correct: false }
-        ]
-    },
-    {
-        question: "What is capital of Sweden?",
-        answers: [
-            { text: "Copenhagen", correct: false },
-            { text: "Oslo", correct: false },
-            { text: "Dublin", correct: false },
-            { text: "Stockholm", correct: true }
-        ]
-    },
-    {
-        question: "What is capital of Latvia?",
-        answers: [
-            { text: "Riga", correct: true },
-            { text: "Rome", correct: false },
-            { text: "Reykjavik", correct: false },
-            { text: "Ljubljana", correct: false }
-        ]
-    },
 
-]
 let shuffledQuestions, currentQuestionIndex, quizScore = 0, answerSelected = false;
 
 startButton.addEventListener('click', startGame)
