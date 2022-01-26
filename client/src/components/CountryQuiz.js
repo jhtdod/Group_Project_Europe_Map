@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./CountryCard.css"
 
 const CountryQuiz = ({countryList, getCountry, setCountryInfo}) => {
 

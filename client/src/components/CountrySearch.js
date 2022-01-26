@@ -15,7 +15,6 @@ const CountrySearch = ({handleChange, filter, setFilter}) => {
 
     return(
     <div className="form">
-    {/* <h2>Or search for a country below</h2> */}
       <input
         onChange={changeSearchValue}
         type="text"

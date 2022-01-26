@@ -43,7 +43,7 @@ const MapContainer = () => {
             <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow} getCountry={getCountry} setCountryInfo={setCountryInfo} countryInfo={countryInfo}/>
 
             <div className="right-side">
-                <div className="dropdown-card">
+                <div className="start-card">
                 {show ? 
                         <Card  style={{height:"30rem", width:"23rem"}}>
 
@@ -52,8 +52,11 @@ const MapContainer = () => {
                         </Card>:
 
                         <Card style={{height:"30rem", width:"25rem"}}>
-                            <Card.Body >
-                                <h4>Select a country on the map or search in the list below</h4>
+                            <Card.Body className="grid">
+                                <h4>Select a country on the map, type one in below or select a quiz!</h4>
+                                <button className="nameCountryQuiz"><a href=""><div className="linktext">Name every country in Europe</div></a></button>
+                                <button className="nameCapitalsQuiz"><a href=""><div className="linktext">Test your knowledge of European Capitals</div></a></button>
+                                <button className="nameFlagQuiz"><a href=""><div className="linktext">How is your flag knowledge?</div></a></button>
                             </Card.Body>
                         </Card> 
                     }

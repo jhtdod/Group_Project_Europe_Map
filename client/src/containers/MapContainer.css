@@ -93,6 +93,14 @@
     height: 95%;
 }
 
+.grid {
+    display:grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 40px 40px;
+}
+
 /* .country-quiz {
     position: fixed;
     bottom: 1px;

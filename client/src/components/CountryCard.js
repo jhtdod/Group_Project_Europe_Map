@@ -1,6 +1,6 @@
 import React from "react";
 import CountryInfo from "./CountryInfo";
-import {Card, CloseButton, Container} from 'react-bootstrap';
+import {Card, CloseButton} from 'react-bootstrap';
 import "./CountryCard.css"
 
 const CountryCard = ({ selectedCountry, countryInfo, handleClose }) => {
