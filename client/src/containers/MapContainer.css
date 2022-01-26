@@ -107,6 +107,7 @@
 } */
 
 .search-container{
+    box-shadow: chocolate;
     z-index: 200;
 }
 
