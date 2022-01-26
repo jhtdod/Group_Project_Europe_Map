@@ -42,6 +42,20 @@ button{
     outline: none;
 }
 
+.question-answered >h5{
+    text-transform: uppercase;
+    color: white;
+    animation: glow 5s ease-in-out infinite alternate;
+}
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px #2d9da9;
+    }
+    to {
+        text-shadow: 0 0 30px #34b3c1, 0 0 10px #4dbbc7;
+}
+}
+
 #next-btn {
     width: 250px;
     margin: 10px;

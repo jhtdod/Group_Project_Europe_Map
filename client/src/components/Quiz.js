@@ -29,10 +29,11 @@ const Quiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, score, s
                     <div id="question-flag"><img className="questionFlag" src={newQuestion.flag}></img></div>
                     <div id="question" className="flagQ">{newQuestion.question}</div>
                 </div>
+
                 <div id="answer-options">
                 {hasAnswered ? 
                     <div className="question-answered">
-                        <h5>{correctText}</h5>
+                        <h5 className="correctText">{correctText}</h5>
                         <p>The answer was {correctAnswer}</p>
                     </div> :
                     <ul>{optionList}</ul>
