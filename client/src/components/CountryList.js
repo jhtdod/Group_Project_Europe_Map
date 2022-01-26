@@ -8,12 +8,12 @@ const CountryList = ({countryList, onCountryClick, checkFilter}) => {
         if (checkFilter(country)) {
         return <CountryListItem key={index} onCountryClick={onCountryClick} country={country}/>
         }
-        return null
+        return null;
     })
 
     return (
         <>
-            <ul>{listOfCountries}</ul>
+        <ul>{listOfCountries}</ul>
         </>
     )
 }
