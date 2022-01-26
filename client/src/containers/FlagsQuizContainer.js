@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Quiz from "../components/Quiz";
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import {Modal, Button} from 'react-bootstrap'
+import './FlagsQuiz.css'
 
 const FlagsQuizContainer = ({ countryList, getCountry }) => {
 
@@ -80,30 +80,30 @@ const FlagsQuizContainer = ({ countryList, getCountry }) => {
         <>
             <button className="nameQuiz" onClick={handleShow}><div className="linkText">How is your flag knowledge?</div></button>
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Flags Quiz</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <div className="controls">
-                        {start ?
-                            <div>
-                                {endPage ? <h5>Your final score is {score}/10 </h5> : null}
-                                <button id="start-btn" onClick={handleStart}>{startButton}</button>
-                            </div>
-                            :
-                            <div className="quiz">
-                                <Quiz
-                                    newQuestion={newQuestion}
-                                    correctAnswer={correctAnswer}
-                                    setHasAnswered={setHasAnswered}
-                                    hasAnswered={hasAnswered}
-                                    score={score}
-                                    setScore={setScore}
-                                />
-                                <button id="next-btn" onClick={handleNext}>Next</button>
-                            </div>}
-                    </div>
-                </Modal.Body>
+                        <Modal.Header className="modHead" closeButton>
+                            <Modal.Title className="modTitle">Flags Quiz</Modal.Title>
+                        </Modal.Header>
+                                <Modal.Body>
+                                    <div className="controls">
+                                        {start ?
+                                            <div>
+                                                {endPage ? <h5>Your final score is {score}/10 </h5> : null}
+                                                <button id="start-btn" onClick={handleStart}>{startButton}</button>
+                                            </div>
+                                            :
+                                            <div className="quiz">
+                                                <Quiz
+                                                    newQuestion={newQuestion}
+                                                    correctAnswer={correctAnswer}
+                                                    setHasAnswered={setHasAnswered}
+                                                    hasAnswered={hasAnswered}
+                                                    score={score}
+                                                    setScore={setScore}
+                                                />
+                                                <button id="next-btn" onClick={handleNext}>Next</button>
+                                            </div>}
+                                    </div>
+                                </Modal.Body>
             </Modal>
         </>
     )
