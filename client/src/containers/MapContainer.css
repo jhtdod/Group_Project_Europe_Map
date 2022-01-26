@@ -137,5 +137,9 @@ a:visited{
     color: black;
 }
 
+.accordion-button:not(.collapsed)::after {
+    background-image: none;
+}
+
 
 @import '~bootstrap/dist/css/bootstrap.css';
