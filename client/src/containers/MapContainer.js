@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CountryCard from '../components/CountryCard';
-import CountryInfo from '../components/CountryInfo';
 import CountryList from '../components/CountryList';
 import CountrySearch from '../components/CountrySearch';
-import "../components/CountrySearch.css"
-import LeafletMap from "./LeafletMap";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Accordion, Card, Container, CloseButton, Modal } from 'react-bootstrap';
-import { Search } from 'react-bootstrap-icons';
-import './MapContainer.css'
-import { countryList } from './../data/EuropeData'
-import { getCountry } from "../services/EuroService";
 import CountryQuiz from "../components/CountryQuiz";
 import CapitalsQuizContainer from "./CapitalsQuizContainer";
 import FlagsQuizContainer from "./FlagsQuizContainer";
+import { Accordion, Card } from 'react-bootstrap';
+import { Search } from 'react-bootstrap-icons';
+import LeafletMap from "./LeafletMap";
+import { countryList } from './../data/EuropeData'
+import { getCountry } from "../services/EuroService";
+import "../components/CountrySearch.css"
+import './MapContainer.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MapContainer = () => {
 

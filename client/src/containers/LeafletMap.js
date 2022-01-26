@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
+import React from "react";
+import { MapContainer, TileLayer, GeoJSON, Marker } from 'react-leaflet';
 import { Icon } from "leaflet";
 import env from 'react-dotenv';
 import './MapContainer.css'

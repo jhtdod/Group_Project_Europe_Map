@@ -1,16 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import "./CountrySearch.css"
 
-const CountrySearch = ({handleChange, filter, setFilter}) => {
-
-  const [searchValue, setSearchValue] = useState("");
+const CountrySearch = ({setFilter}) => {
 
   const changeSearchValue = (event) => {
     setFilter(event.target.value);
-  }
-
-  const resetSearch = () => {
-    setSearchValue('')
   }
 
     return(
