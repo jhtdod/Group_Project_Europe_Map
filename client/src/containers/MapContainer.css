@@ -90,15 +90,20 @@ a:visited{
 }
 
 .accordion-button::after {
-    background-image: none;
+    background-color: #10242d;
 }
 
 .accordion-button:not(.collapsed)::after {
-    background-image: none;
+    background-color: #10242d;
 }
 
 .search-bar {
     background-image: none;
+}
+
+::placeholder{
+    color: #10242d;
+    opacity: 1;
 }
 
 .search-container {
