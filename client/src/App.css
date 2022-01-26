@@ -10,6 +10,8 @@
 }
 
 h1 {
+  padding: 1%;
+  margin:  5%;
   z-index: 10;
   background-color: transparent;
   position: fixed;
@@ -19,10 +21,13 @@ h1 {
 }
 
 .black-header {
+  border: 1px white;
+  color: #1d1af5;
   font-weight: bold;
 }
 
 .new-colour-header{
-  color: rgb(44, 71, 160);
+  outline: 1px white;
+  color: #fed712;
   font-weight: bold;
 }

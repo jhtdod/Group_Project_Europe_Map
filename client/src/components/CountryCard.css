@@ -1,5 +1,6 @@
 .cardImage{
     border-radius: 5px;
+    max-height: fit-content;
     /* border-style: solid;
     border-color: 0.25px black */
 }

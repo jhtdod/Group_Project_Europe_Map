@@ -11,7 +11,7 @@ const CountryInfo = ({countryInfo}) => {
     return (
 
         <>
-        <img src={countryInfo[1].flags.png} width="100%" alt={`Flag of ${countryInfo[0].country}`} className="cardImage"/>
+        <img src={countryInfo[1].flags.png} width="100%" height="80%" alt={`Flag of ${countryInfo[0].country}`} className="cardImage"/>
         <div className="pulledInfo">
         <p>Capital: {countryInfo[1].capital}<br/>
         Population: {countryInfo[1].population}<br/>
