@@ -19,6 +19,7 @@ const MapContainer = () => {
     const [filter, setFilter] = useState('')
     const [show, setShow] = useState(false)
     const [countryInfo, setCountryInfo] = useState(null)
+    const [quizInfo, setQuizInfo] = useState(null)
 
     const checkFilter = (country) => {
         return (country.toUpperCase().includes(filter.toUpperCase()))
@@ -40,7 +41,7 @@ const MapContainer = () => {
 
     return (
         <>
-            <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow} getCountry={getCountry} setCountryInfo={setCountryInfo} countryInfo={countryInfo}/>
+            <LeafletMap setSelectedCountry={setSelectedCountry} handleShow={handleShow} getCountry={getCountry} setCountryInfo={setCountryInfo} countryInfo={countryInfo} quizInfo={quizInfo}/>
 
             <div className="right-side">
                 <div className="start-card">
@@ -77,7 +78,7 @@ const MapContainer = () => {
 
             </div>
 
-            <CountryQuiz countryList={countryList} getCountry={getCountry} setCountryInfo={setCountryInfo}/>
+            <CountryQuiz countryList={countryList} getCountry={getCountry} handleClose={handleClose} setQuizInfo={setQuizInfo}/>
 
         </>
     )
