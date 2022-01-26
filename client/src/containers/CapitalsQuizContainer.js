@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CapitalsQuiz from "../components/CapitalsQuiz";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 const CapitalsQuizContainer = () => {
-    
+
     const questions = [
         {
             question: "What is capital of Spain?",
@@ -56,30 +56,43 @@ const CapitalsQuizContainer = () => {
     const [show, setShow] = useState(false)
     const [start, setStart] = useState(true)
     const [startButton, setStartButton] = useState("Start")
-    const [newQuestion, setNewQuestion] = useState({})
+    const [newQuestion, setNewQuestion] = useState([])
     const [questionCount, setQuestionCount] = useState(0)
+    // const [correctAnswer, setCorrectAnswer] = useState("Correct")
 
     const handleShow = () => setShow(true)
     const handleClose = () => setShow(false)
 
+    // const findTrue = () => {
+    //     const correctAnswerArray = questions[questionCount].answers.find(answer => answer.correct === true)
+    //     console.log(correctAnswerArray);
+    //     const answerText = correctAnswerArray["text"]
+    //     console.log(answerText)
+    //     // setCorrectAnswer(answerText)
+    //     // console.log(correctAnswer);
+    // }
+
     const handleStart = () => {
-        setNewQuestion(questions[0])
+        setNewQuestion([questions[questionCount]])
         setQuestionCount(1)
         setStart(false)
+        // findTrue()
     }
 
     const handleNext = () => {
-        if (questionCount < questions.length - 1) {
-            setNewQuestion(questions[questionCount])
-            const newCount = questionCount++;
+        if (questionCount <= questions.length - 1) {
+            setNewQuestion([questions[questionCount]])
+            let newCount = questionCount + 1;
             setQuestionCount(newCount);
+            // findTrue()
         } else {
             setStartButton("Restart")
             setStart(true)
+            setQuestionCount(0)
         }
     }
 
-    return(
+    return (
         <>
             <Button onClick={handleShow}>
                 <h3>Capitals Quiz</h3>
@@ -90,11 +103,11 @@ const CapitalsQuizContainer = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <div className="controls">
-                        {start ? <button id="start-btn" onClick={handleStart}>{startButton}</button> : 
-                        <div className="quiz"> 
-                            <CapitalsQuiz newQuestion={newQuestion}/>
-                            <button id="next-btn" onClick={handleNext}>Next</button> 
-                        </div> }
+                        {start ? <button id="start-btn" onClick={handleStart}>{startButton}</button> :
+                            <div className="quiz">
+                                <CapitalsQuiz newQuestion={newQuestion} />
+                                <button id="next-btn" onClick={handleNext}>Next</button>
+                            </div>}
                     </div>
                 </Modal.Body>
             </Modal>

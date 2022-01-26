@@ -1,13 +1,15 @@
 import React from "react";
 
-const QuizOption = ({answer}) => {
+const QuizOption = ({answerName, handleClick}) => {
+
     return(
         <>
-            <button>
-                {answer.text}
+            <button onClick={handleClick}>
+                {answerName}
             </button>
         </>
     )
 }
+
 
 export default QuizOption;
