@@ -70,11 +70,13 @@ const MapContainer = () => {
                     <Accordion style={{ border: "none", width:"25rem"}}>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header className="search-bar" style={{ border: "none" }}><Search /><CountrySearch setFilter={setFilter}/></Accordion.Header>
-                            <Accordion.Body style = {{ height:"13rem" }}>
-                                <div className="SearchList">
-                                    <CountryList countryList={countryList} onCountryClick={onCountryClick} checkFilter={checkFilter} />
-                                </div>
-                            </Accordion.Body>
+                            <Accordion.Button>
+                                <Accordion.Body style = {{ height:"13rem" }} eventKey="1">
+                                    <div className="SearchList">
+                                        <CountryList countryList={countryList} onCountryClick={onCountryClick} checkFilter={checkFilter} />
+                                    </div>
+                                </Accordion.Body>
+                            </Accordion.Button>
                         </Accordion.Item>
                     </Accordion>
                 </div>
