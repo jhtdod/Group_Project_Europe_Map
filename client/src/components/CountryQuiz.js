@@ -9,6 +9,7 @@ const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo, setShow
     const [formData, setFormData] = useState({});
     const [message, setMessage] = useState("");
     const [score, setScore] = useState(0);
+    const [start, setStart] = useState(true);
 
     const handleChange = (event) =>{
         formData[event.target.id] = event.target.value;
@@ -21,6 +22,7 @@ const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo, setShow
     }
 
     const startQuiz = () => {
+        setStart(false)
         getCountry(quizList[quizList.length - 1])
         .then(result => setQuizInfo(result));
     }
@@ -29,6 +31,7 @@ const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo, setShow
         setScore(0)
         setMessage("")
         setQuizInfo(null)
+        setStart(true)
         handleClose()
         setQuizList(countryList.slice().sort(() => Math.random() - 0.5))
         setShowQuiz(false)
@@ -71,17 +74,22 @@ const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo, setShow
 
         return (
             <div className="country-quiz">
-            <Card  text="light" bg="dark" border="dark" style={{width: '100%', height: '100%'}}>
+            <Card  text="light" bg="dark" border="dark" style={{height:"35rem", width:"25rem"}}>
                 <CloseButton variant="white" onClick={resetQuiz} aria-label="hide"/>
                     <Card.Body>
                     <Card.Title as='h4'>Can you name the countries?</Card.Title>
                                     <Card.Text>
-                                    <p onClick={startQuiz}>Click me to start</p>
-                                    <form onSubmit={onSubmit}>
-                                        <input type="text" id="answer" onChange={handleChange}/>
-                                        <input type="submit"/>
-                                    </form>
-                                    <p>{message} {score}/46</p>
+                                        {start ? <button className="submit-start-button" onClick={startQuiz}>Click me to start</button> 
+                                        :
+                                        <div>
+                                            <form className = "quiz-form" onSubmit={onSubmit}>
+                                                <input type="text" id="answer" onChange={handleChange}/>
+                                                <input type="submit"/>
+                                            </form> 
+                                            <p id="score-message">{message} {score}/46</p>
+                                        </div>
+                                        }
+                                        
                                     </Card.Text>
                     </Card.Body>
                 </Card>

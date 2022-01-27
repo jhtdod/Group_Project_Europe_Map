@@ -41,9 +41,22 @@ h5 {
     color: white 
 }
 
-.country-quiz {
+.country-quiz > h4{
     font: 26px/150% 'Microsoft Yi Baiti', cursive;
 }
+
+.quiz-form {
+    margin: 20px 0 10px 0;
+}
+
+.submit-start-button {
+    margin: 10px 0;
+}
+
+#score-message {
+    margin: 10px 0;
+}
+
 /* Card variables 
 $card-spacer-y:                     $spacer;
 $card-spacer-x:                     $spacer;
