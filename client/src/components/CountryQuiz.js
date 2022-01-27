@@ -79,7 +79,7 @@ const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo, setShow
                     <Card.Body>
                     <Card.Title as='h4'>Can you name the countries?</Card.Title>
                                     <Card.Text>
-                                        {start ? <button className="submit-start-button" onClick={startQuiz}>Click me to start</button> 
+                                        {start ? <button className="submit-start-button" onClick={startQuiz}>Click to start</button> 
                                         :
                                         <div>
                                             <form className = "quiz-form" onSubmit={onSubmit}>
