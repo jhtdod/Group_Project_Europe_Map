@@ -1,6 +1,6 @@
 .cardImage{
     border-radius: 5px;
-    height:250px;
+    height:225px;
     margin: 0 0 3% 0
 }
 
@@ -11,15 +11,15 @@
 }
 
 .cardInfoLabel{
-    font: bold 22px/150% 'Architects Daughter', cursive;
+    font: 20px/150% 'Catamaran', sans-serif;
 }
 
 .cardInfoContent{
-    font: 22px/150% 'Architects Daughter', cursive;
+    font: 18px/150% 'Catamaran', sans-serif;
 }
 
 h4 {
-    font: 25px/100% 'Permanent Marker', cursive;
+    font: bold 21px/100% 'Catamaran', sans-serif;
     margin: 0;
     padding: 0;
 }
