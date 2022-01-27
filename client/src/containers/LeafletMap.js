@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
+import React from "react";
+import { MapContainer, TileLayer, GeoJSON, Marker } from 'react-leaflet';
 import { Icon } from "leaflet";
 import env from 'react-dotenv';
 import './MapContainer.css'
@@ -20,20 +20,20 @@ const LeafletMap = ({setSelectedCountry, handleShow, getCountry, countryInfo, se
     };
 
     const onEachCountry = (country, layer) => {
-        layer.options.fillOpacity = country.properties.COL
+        layer.options.fillOpacity = country.properties.COL;
 
         layer.on({
             click: () => {
                 getCountry(country.properties.NAME)
-                    .then(result => setCountryInfo(result));
+                .then(result => setCountryInfo(result));
                 setSelectedCountry(country.properties.NAME);
                 handleShow();
             },
             mouseover: (event) => {
-                event.target.setStyle({color: "white", weight: 3, fillOpacity: 1})
+                event.target.setStyle({color: "white", weight: 3, fillOpacity: 1});
             },
             mouseout: (event) => {
-                event.target.setStyle({color: "grey", weight: 1, fillOpacity: country.properties.COL})
+                event.target.setStyle({color: "grey", weight: 1, fillOpacity: country.properties.COL});
             }
         })
     }
@@ -57,7 +57,7 @@ const LeafletMap = ({setSelectedCountry, handleShow, getCountry, countryInfo, se
             case "Croatia":
                 return [44.4, 15.4];
             case "Kosovo":
-                return [42.5, 20.8]
+                return [42.5, 20.8];
             default:
                 return info[1].latlng;
         }
@@ -65,29 +65,28 @@ const LeafletMap = ({setSelectedCountry, handleShow, getCountry, countryInfo, se
 
     const displayMarker = () => {
         if (countryInfo && (!quizInfo)) {
-            return handleSwitch(countryInfo)
+            return handleSwitch(countryInfo);
         } else if (quizInfo) {
-            return handleSwitch(quizInfo)
+            return handleSwitch(quizInfo);
         }
-        return [0,0]
+        return [0,0];
     }
 
     return (
-            <div className="leaflet-container">
+        <div className="leaflet-container">
             <MapContainer center={[52, 28]} zoom={4} attributionControl={false} zoomControl={false} scrollWheelZoom={false} doubleClickZoom= {false} closePopupOnClick= {false} dragging= {false} zoomSnap= {false} zoomDelta= {false} trackResize= {false} touchZoom= {false} scrollWheelZoom= {false}>
                 <TileLayer
-                url={env.MAP_TILESET_URL}
+                    url={env.MAP_TILESET_URL}
                 />
                 <GeoJSON
-                style={countryStyle} 
-                data={europe_json}
-                onEachFeature={onEachCountry}
+                    style={countryStyle} 
+                    data={europe_json}
+                    onEachFeature={onEachCountry}
                 />
                 <Marker key={0} position={displayMarker()} icon={icon}/>
             </MapContainer>
-            </div>
+        </div>
     )
 }
-
 
 export default LeafletMap;

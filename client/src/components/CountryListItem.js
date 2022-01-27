@@ -6,7 +6,7 @@ const CountryListItem = ({country, onCountryClick}) => {
 
     return (
         <>
-            <li onClick={handleClick}>{country}</li>
+        <li onClick={handleClick}>{country}</li>
         </>
     )
 }
