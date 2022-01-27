@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Quiz from "../components/Quiz";
-import {Modal, Button} from 'react-bootstrap';
-import './FlagsandCapitalQuiz.css'
+import Modal from 'react-bootstrap/Modal';
 
 const CapitalsQuizContainer = ({ countryList, getCountry }) => {
 
