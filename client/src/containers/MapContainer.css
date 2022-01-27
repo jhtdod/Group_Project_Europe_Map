@@ -1,3 +1,5 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+
 .right-side {
     position: fixed;
     z-index: 10;
@@ -49,23 +51,15 @@ a:visited{
     color: white;
 }
 
-
 .accordion-item:last-of-type .accordion-button.collapsed {
     background-color: #10242d;
 }
 
 .accordion-item:first-of-type .accordion-button {
     background-color: #10242d;
-    /* margin: 0; */
     padding: 0;
     z-index: 1000;
 }
-
-/* .accordion-item:first-of-type {
-}
-
-.accordion-item:last-of-type {
-} */
 
 .card-header {
     background-color: transparent;
@@ -125,7 +119,7 @@ button.accordion-body.collapseButton{
 }
 
 .search-container {
-    background-color: #10242d;
+    background-color: #e824fa;
     position: fixed;
     bottom: 10%;
     width: 370px;
@@ -145,12 +139,6 @@ button.accordion-body.collapseButton{
 .SearchList {
     height: 95%;
 }
-
-
-/* .country-quiz {
-    position: fixed;
-    bottom: 1px;
-} */
 
 .search-container{
     box-shadow: chocolate;
@@ -174,4 +162,10 @@ button.accordion-body.collapseButton{
     background-image: none;
 }
 
-@import '~bootstrap/dist/css/bootstrap.css';
+.collapseButton > accordion-button > collapsed {
+    border: none;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+    box-shadow: none;
+}

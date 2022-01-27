@@ -4,8 +4,6 @@
     border-radius: 5px;
     height:250px;
     margin: 0 0 3% 0
-    /* border-style: solid;
-    border-color: 0.25px black */
 }
 
 .pulledInfo{
@@ -46,6 +44,7 @@ h4 {
 
 h5 {
     color: white 
+
 }
 
 .country-quiz > h4{
@@ -102,3 +101,5 @@ $card-color:                        null;
 $card-bg:                           $white;
 $card-img-overlay-padding:          $spacer;
 $card-group-margin:                 $grid-gutter-width * .5; */
+=======
+
