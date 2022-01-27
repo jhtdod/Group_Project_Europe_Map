@@ -17,17 +17,16 @@ const Quiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, score, s
     }
 
     const optionList = newQuestion.answers.map((answer, index) => {
-        const answerName = answer.text
+        const answerName = answer.text;
         return <QuizOption answerName={answerName} key={index} handleClick={handleClick}/>
     })
 
-    return(
+    return (
         <>
             <div id="question-container">
                 <div id="header">
                     <div id="question">{newQuestion.question}</div>
                 </div>
-
                 <div id="answer-options">
                 {hasAnswered ? 
                     <div className="question-answered">
@@ -37,10 +36,10 @@ const Quiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, score, s
 
                     </div> :
                     <ul>{optionList}</ul>
-                    
                     }
                 </div>
             </div>
+        </div>
         </>
     )
 }

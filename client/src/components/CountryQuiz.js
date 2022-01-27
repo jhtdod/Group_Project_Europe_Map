@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CountryCard.css"
 
-const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo}) => {
+const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo, setShowQuiz}) => {
 
     const [quizList, setQuizList] = useState(countryList.slice().sort(() => Math.random() - 0.5));
     const [formData, setFormData] = useState({});
@@ -24,11 +24,12 @@ const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo}) => {
     }
 
     const resetQuiz = () => {
-        setScore(0)
-        setMessage("")
-        setQuizInfo(null)
-        handleClose()
-        setQuizList(countryList.slice().sort(() => Math.random() - 0.5))
+        setScore(0);
+        setMessage("");
+        setQuizInfo(null);
+        handleClose();
+        setQuizList(countryList.slice().sort(() => Math.random() - 0.5));
+        setShowQuiz(false);
     }
 
     const checkAnswer = (answer, event) => {
@@ -40,7 +41,7 @@ const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo}) => {
         }
 
         const wrongAnswer = () => {
-            setMessage("That's not right - try again?")
+            setMessage("That's not right - try again?");
         }
 
         switch (quizList.length) {
@@ -48,37 +49,36 @@ const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo}) => {
                 break;
             case 1:
                 if ((quizList[0]).toUpperCase() === answer.toUpperCase()){
-                    correctAnswer()
-                    setMessage("Wow! You named every country in Europe!")
-                    setQuizInfo(null)
+                    correctAnswer();
+                    setMessage("Wow! You named every country in Europe!");
+                    setQuizInfo(null);
                 } else {
-                    wrongAnswer()
+                    wrongAnswer();
                 }
                 break;
             default:
                 if ((quizList[quizList.length - 1]).toUpperCase() === answer.toUpperCase()){
-                    correctAnswer()
+                    correctAnswer();
                     getCountry(quizList[quizList.length - 1])
                     .then(result => setQuizInfo(result));
                 } else {
-                    wrongAnswer()
+                    wrongAnswer();
                 }
         }
     }
 
-        return (
-            <div className="country-quiz">
+    return (
+        <div className="country-quiz">
             <h5>Can you name the countries?</h5>
             <p onClick={startQuiz}>Click me to start</p>
-            <p onClick={resetQuiz}>--Reset--</p>
+            <p onClick={resetQuiz}>--Close--</p>
             <form onSubmit={onSubmit}>
                 <input type="text" id="answer" onChange={handleChange}/>
                 <input type="submit"/>
             </form>
             <p>{message} {score}/46</p>
-            </div>
-        )
-    
+        </div>
+        )  
 }
 
 export default CountryQuiz;
