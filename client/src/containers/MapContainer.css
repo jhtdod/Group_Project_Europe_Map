@@ -48,8 +48,6 @@ a:visited{
     color: white;
 }
 
-/* .card-header:first-child {
-} */
 
 .accordion-item:last-of-type .accordion-button.collapsed {
     background-color: #10242d;

@@ -76,7 +76,7 @@ const CountryQuiz = ({countryList, getCountry, handleClose, setQuizInfo, setShow
             <div className="country-quiz">
             <Card  text="light" bg="dark" border="dark" style={{height:"35rem", width:"25rem"}}>
                 <CloseButton variant="white" onClick={resetQuiz} aria-label="hide"/>
-                    <Card.Body>
+                    <Card.Body className="appBody">
                     <Card.Title as='h4'>Can you name the countries?</Card.Title>
                                     <Card.Text>
                                         {start ? <button className="submit-start-button" onClick={startQuiz}>Click to start</button> 
