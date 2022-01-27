@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Quiz from "../components/Quiz";
-import {Modal, Button} from 'react-bootstrap'
-import './FlagsandCapitalQuiz.css'
+import Modal from 'react-bootstrap/Modal';
 
 const FlagsQuizContainer = ({ countryList, getCountry }) => {
 
@@ -29,8 +28,8 @@ const FlagsQuizContainer = ({ countryList, getCountry }) => {
                 countries.map(country => getCountry(country)
                 .then(value => data.push(value))))
                 .finally(() => {
-                    let answer = data[Math.floor(Math.random() * 4)]
-                    let question = `Who does this flag belong to?`
+                    let answer = data[Math.floor(Math.random() * 4)];
+                    let question = `This is the flag of where?`;
                     let answers = [
                         { text: (data[0][0].country), correct: (data[0] === answer) },
                         { text: (data[1][0].country), correct: (data[1] === answer) },
@@ -73,34 +72,34 @@ const FlagsQuizContainer = ({ countryList, getCountry }) => {
 
     return (
         <>
-            <button className="nameQuiz" onClick={handleShow}><div className="linkText">How is your flag knowledge?</div></button>
-            <Modal show={show} onHide={handleClose}>
-                        <Modal.Header className="modHead" closeButton>
-                            <Modal.Title className="modTitle">Flags Quiz</Modal.Title>
-                        </Modal.Header>
-                                <Modal.Body>
-                                    <div className="controls">
-                                        {start ?
-                                            <div>
-                                                {endPage ? <h5>Your final score is {score}/10 </h5> : null}
-                                                <button id="start-btn" onClick={handleStart}>{startButton}</button>
-                                            </div>
-                                            :
-                                            <div className="quiz">
-                                            <img className="questionFlag" src={newQuestion.flag}></img>
-                                                <Quiz
-                                                    newQuestion={newQuestion}
-                                                    correctAnswer={correctAnswer}
-                                                    setHasAnswered={setHasAnswered}
-                                                    hasAnswered={hasAnswered}
-                                                    score={score}
-                                                    setScore={setScore}
-                                                />
-                                                <button id="next-btn" onClick={handleNext}>Next</button>
-                                            </div>}
-                                    </div>
-                                </Modal.Body>
-            </Modal>
+        <button className="nameQuiz" onClick={handleShow}><div className="linkText">Test your knowledge of European Capitals</div></button>
+        <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+                <Modal.Title>Capitals Quiz</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <div className="controls">
+                    {start ?
+                        <div className="score-page">
+                            {endPage ? <h5>Your final score is {score}/10 </h5> : null}
+                            <button id="start-btn" onClick={handleStart}>{startButton}</button>
+                        </div>
+                        :
+                        <div className="quiz">
+                        <Quiz
+                            newQuestion={newQuestion}
+                            correctAnswer={correctAnswer}
+                            setHasAnswered={setHasAnswered}
+                            hasAnswered={hasAnswered}
+                            score={score}
+                            setScore={setScore}
+                        />
+                        <button id="next-btn" onClick={handleNext}>Next</button>
+                        </div>
+                    }
+                </div>
+            </Modal.Body>
+        </Modal>
         </>
     )
 }
