@@ -46,3 +46,5 @@ const Quiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, score, s
 }
 
 export default Quiz;
+
+// hello 
