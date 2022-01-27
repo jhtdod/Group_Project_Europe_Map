@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import QuizOption from "./QuizOption";
-import '../containers/FlagsQuiz.css'
+import '../containers/FlagsandCapitalQuiz.css'
 
 const Quiz = ({newQuestion, correctAnswer, setHasAnswered, hasAnswered, score, setScore}) => {
 
