@@ -51,8 +51,10 @@ const MapContainer = () => {
         <div className="right-side">
             <div className="start-card">
                 {showQuiz ?
-                    <div className="quiz-card">
-                        <Card style={{height:"35rem", width:"25rem"}}>
+
+                        <div className="quiz-card">
+                        <Card style={{height:"35.5rem", width:"25rem"}}>
+
                             <CountryQuiz countryList={countryList} getCountry={getCountry} handleClose={handleClose} setQuizInfo={setQuizInfo} setShowQuiz={setShowQuiz}/>
                         </Card>
                     </div> :
