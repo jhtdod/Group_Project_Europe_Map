@@ -12,22 +12,37 @@
     padding: 1%;
 }
 
+/* .pulledInfo > li {
+
+} */
+
 .cardInfoLabel{
-    font: bold 22px/150% 'Architects Daughter', cursive;
+    /* font: bold 22px/150% 'Architects Daughter', cursive; */
+    /* font: bold 22px/150% 'Franklin Gothic Medium'; */
+    /* font-family: 'Gulim'; */
+    font: bold 26px/150% 'Microsoft Yi Baiti', cursive; 
 }
 
 .cardInfoContent{
-    font: 22px/150% 'Architects Daughter', cursive;
+    /* font: 22px/150% 'Architects Daughter', cursive; */
+    font: 26px/150% 'Microsoft Yi Baiti', cursive;
+    /* font-family: 'Gulim'; */
 }
 
 h4 {
-    font: 25px/100% 'Permanent Marker', cursive;
+    /* font: 25px/100% 'Permanent Marker', cursive; */
+    font: 25px/100% 'Gulim', cursive;
+    /* font-family: 'Gulim'; */
     margin: 0;
     padding: 0;
 }
 
 h5 {
     color: white 
+}
+
+.country-quiz {
+    font: 26px/150% 'Microsoft Yi Baiti', cursive;
 }
 /* Card variables 
 $card-spacer-y:                     $spacer;
