@@ -39,6 +39,7 @@ const MapContainer = () => {
     const handleClose = () => {
         setShow(false);
         setCountryInfo(null);
+        setShowQuiz(false)
     }
 
     const handleQuizClick = () => {
@@ -54,7 +55,6 @@ const MapContainer = () => {
 
                         <div className="quiz-card">
                         <Card style={{height:"35.5rem", width:"25rem"}}>
-
                             <CountryQuiz countryList={countryList} getCountry={getCountry} handleClose={handleClose} setQuizInfo={setQuizInfo} setShowQuiz={setShowQuiz}/>
                         </Card>
                     </div> :

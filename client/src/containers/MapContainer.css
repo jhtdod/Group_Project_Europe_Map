@@ -162,10 +162,6 @@ button.accordion-body.collapseButton{
     background-image: none;
 }
 
-.collapseButton > accordion-button > collapsed {
-    border: none;
-}
-
 .accordion-item:last-of-type .accordion-button.collapsed {
     box-shadow: none;
 }
